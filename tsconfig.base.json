@@ -15,6 +15,11 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths" : {
+      "@fdz/components": ["src/app/components"],
+      "@fdz/models": ["src/app/models"],
+      "@fdz/services": ["src/app/services"]
+    }
   }
 }

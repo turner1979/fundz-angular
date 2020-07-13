@@ -1,27 +1,43 @@
-# FundsAngular
+# Fundz App - Angular 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+Fundz is a demo app which allows users to create one or more funding targets to track their progress towards them.
 
-## Development server
+Users can perform the following tasks:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Add fund
+- View all funds
+- View individual fund
+- Update fund
+- Delete fund
+- Change colour assigned to fund
 
-## Code scaffolding
+Data is not persisted with a backend database, it's saved on local storage for simplicity of demonstration.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Notes
 
-## Build
+The app demonstrates the use of the following:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Creating Components
+- Creating Services
+- Routing
+- Using models ( Typescript interfaces )
+- Using Observables ( with RxJs )
 
-## Running unit tests
+## Stack Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular ( v10 )
+- SCSS
 
-## Running end-to-end tests
+## Other Versions
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- AngularJS - (coming soon)
+- Angular + NgRx - (coming soon)
+- Bit - (coming soon)
+- React - (coming soon)
+- React + Redux - (coming soon)
+- Svelte - (coming soon)
+- Vue (coming soon)
 
-## Further help
+## Running the App Locally
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+After cloning the repo run `ng serve` from the cmd line and open `http://localhost:4200/` in your browser.
