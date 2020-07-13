@@ -28,8 +28,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/fdz-styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+               "src/styles",
+               "src/styles/fdz-styles"
+              ] 
+             },
             "scripts": []
           },
           "configurations": {

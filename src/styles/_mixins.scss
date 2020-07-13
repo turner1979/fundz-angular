@@ -1,0 +1,12 @@
+@function pxToRem($pixels, $context: 16) {
+  @return #{$pixels/$context}rem;
+}
+
+@mixin fdz-font($fontSize:16, $fontWeight: 300, $fontColour: #222){
+  font-family: "Montserrat", arial;
+  font-size: #{$fontSize}px;
+  font-size: pxToRem($fontSize);
+  font-weight: $fontWeight;
+  color: $fontColour;
+  letter-spacing: 1px;
+}

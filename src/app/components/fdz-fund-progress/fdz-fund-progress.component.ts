@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FdzFund } from '@fdz/models';
 
 @Component({
   selector: 'fdz-fund-progress',
@@ -7,11 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FdzFundProgressComponent implements OnInit {
 
-  @Input() name:string;
+  @Input() fund: FdzFund
 
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  get stripStyles() {
+    return {
+      'width' : `${(100 / this.fund.target) * this.fund.current}%`,
+      'background-color' : this.fund.colour 
+    };
   }
 
 }

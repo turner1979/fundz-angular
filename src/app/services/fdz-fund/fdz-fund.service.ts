@@ -12,9 +12,10 @@ export class FdzFundService {
   getFunds(): Observable<FdzFund[]> {
     // TODO: data should be retrieved from localstorage not hardcoded
     return of([
-      { name: 'Holiday' },
-      { name: 'New Car' },
-      { name: 'Christmas Presents' }
+      { colour: '#00aa00', current: 0, name: 'Ferrari', target: 90000 },
+      { colour: '#00aa00', current: 1200, name: 'Holiday', target: 2000 },
+      { colour: '#00aaa0', current: 500, name: 'New Car', target: 10000 },
+      { colour: '#00aa00', current: 500, name: 'Wedding', target: 5000 }
     ]);
   }
 

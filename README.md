@@ -41,3 +41,7 @@ The app demonstrates the use of the following:
 ## Running the App Locally
 
 After cloning the repo run `ng serve` from the cmd line and open `http://localhost:4200/` in your browser.
+
+## Hosted Versions
+
+- Coming soon

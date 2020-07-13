@@ -1,4 +1,12 @@
 .fdz-dashboard {
 
+  fdz-fund-progress {
+    ::ng-deep {
+      .fdz-fund-progress__bar {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
 }
 
