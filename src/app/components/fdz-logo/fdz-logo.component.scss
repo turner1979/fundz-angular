@@ -1,3 +1,9 @@
+@import "fdz-styles";
+
 .fdz-fund {
+
+  p {
+    @include fdz-font(24);
+  }
 
 }

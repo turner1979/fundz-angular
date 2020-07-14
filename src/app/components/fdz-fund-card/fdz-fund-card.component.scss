@@ -1,0 +1,98 @@
+@import "fdz-styles";
+
+$barHeight: 8px;
+$gradient: linear-gradient(to right, #64b83d, #72c13c, #81ca3b, #90d339, #9fdc37);
+
+.fdz-fund-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 15px 36px -13px rgba(0,0,0,0.29);
+
+  p {
+    @include fdz-font(14, #fff);
+    margin: 0;
+  }
+
+  .fdz-fund-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-image: $gradient;
+    padding: 16px;
+
+    p:first-child {
+      margin-bottom: 8px;
+    }
+
+    p:nth-child(2) {
+      @include fdz-font(20, #fff);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      span {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .fdz-fund-card__bottom {
+    padding: 16px;
+  }
+
+  .fdz-fund-card__edit {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #ffffff;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      color: #fff;
+    }
+  }
+
+  .fdz-fund-progress {
+
+    p {
+      @include fdz-font(14);
+    }
+    
+    .fdz-fund-progress__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p:nth-child(2) {
+        @include fdz-font(20, #222, 600);
+      }
+    }
+
+    .fdz-fund-progress__bar {
+      position: relative;
+      background: #ccc;
+      border-radius: $barHeight / 2;
+      height: $barHeight;
+      margin: 8px 0;
+
+      .fdz-fund-progress__bar-current {
+        background-image: $gradient;
+        border-radius: $barHeight / 2;
+        height: $barHeight;
+      }
+    }
+
+    .fdz-fund-progress__bottom {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+  }
+
+}

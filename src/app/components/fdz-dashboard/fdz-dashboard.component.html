@@ -1,9 +1,9 @@
 <div class="fdz-dashboard">
 
   <ng-container *ngIf="funds$ | async as funds">
-    <fdz-fund-progress 
+    <fdz-fund-card
       *ngFor="let fund of funds" 
-      [fund]="fund"></fdz-fund-progress>
+      [fund]="fund"></fdz-fund-card>
   </ng-container>
 
 </div>

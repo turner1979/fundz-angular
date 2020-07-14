@@ -2,7 +2,7 @@
   @return #{$pixels/$context}rem;
 }
 
-@mixin fdz-font($fontSize:16, $fontWeight: 300, $fontColour: #222){
+@mixin fdz-font($fontSize:16, $fontColour: #222, $fontWeight: 300){
   font-family: "Montserrat", arial;
   font-size: #{$fontSize}px;
   font-size: pxToRem($fontSize);

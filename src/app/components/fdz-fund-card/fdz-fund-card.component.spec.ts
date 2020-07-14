@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FdzFundProgressComponent } from './fdz-fund-progress.component';
+import { FdzFundCardComponent } from './fdz-fund-card.component';
 
 describe('FdzFundOverviewComponent', () => {
-  let component: FdzFundProgressComponent;
-  let fixture: ComponentFixture<FdzFundProgressComponent>;
+  let component: FdzFundCardComponent;
+  let fixture: ComponentFixture<FdzFundCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FdzFundProgressComponent ]
+      declarations: [ FdzFundCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FdzFundProgressComponent);
+    fixture = TestBed.createComponent(FdzFundCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
