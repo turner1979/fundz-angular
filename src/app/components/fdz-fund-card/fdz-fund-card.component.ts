@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class FdzFundCardComponent implements OnInit {
 
-  @Input() fund: FdzFund
+  @Input() fund: FdzFund;
+  @Input() showEdit = true;
 
   constructor(private router: Router) { }
 

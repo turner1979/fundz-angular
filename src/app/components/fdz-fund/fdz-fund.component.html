@@ -4,7 +4,14 @@
   <fdz-content-container>
 
     <ng-container *ngIf="fund$ | async as fund">
-      <fdz-fund-card [fund]="fund"></fdz-fund-card>
+      <fdz-fund-card [fund]="fund" [showEdit]="false">
+        TODO: tabs<br />
+        <ul>
+          <li>Progress</li>
+          <li>Edit</li>
+          <li>Add Contribution</li>
+        </ul>
+      </fdz-fund-card>
     </ng-container>
 
     <fdz-footer></fdz-footer>

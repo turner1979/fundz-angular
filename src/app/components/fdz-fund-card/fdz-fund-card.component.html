@@ -10,7 +10,7 @@
         <span>{{ fund.target | currency: 'GBP' : 'symbol' : '1.0-0' }}</span>
       </p>
     </div>
-    <div>
+    <div *ngIf="showEdit">
       <div class="fdz-fund-card__edit" (click)="onFundClick()">
         <i class="fas fa-lg fa-pencil-alt"></i>
       </div>
