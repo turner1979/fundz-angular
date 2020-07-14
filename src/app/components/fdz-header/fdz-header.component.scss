@@ -5,9 +5,15 @@
   top: 0;
   left: 0;
   width: 100%;
+  padding: 0 16px;
   height: 60px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: #fff;
+
+  .fdz-header__back {
+    cursor: pointer;
+  }
+
 }
