@@ -1,0 +1,23 @@
+@import "fdz-styles";
+
+.fdz-button {
+  width: 100%;
+
+  button {
+    width: 100%;
+    padding: 12px 16px;
+    outline: none;
+    border: none;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    @include fdz-font(14, #64b83d);
+  }
+
+  &:hover {
+    button {
+      letter-spacing: 2px;
+    }
+  }
+
+}

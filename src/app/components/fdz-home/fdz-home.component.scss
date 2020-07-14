@@ -1,0 +1,37 @@
+@import "fdz-styles";
+
+.fdz-home {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .fdz-home__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    h1 {
+      @include fdz-font(36, #fff, 600);
+      margin: 0 0 16px 0;
+    }
+
+    p {
+      @include fdz-font(14, #fff);
+      margin: 0 0 16px 0;
+    }
+
+    fdz-button {
+      width: 100%;
+      max-width: 300px;
+
+      + p {
+        margin-top: 16px;
+      }
+    }
+
+  }
+  
+}

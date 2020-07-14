@@ -6,18 +6,22 @@ import { AppComponent } from './app.component';
 // Barrel rolling is used to reduce number of import statements
 // Path aliases are defined in tsconfig.base.json file to improve readability also (e.g. @fdz/components @fdz/models etc)
 import { 
+  FdzButtonComponent,
   FdzDashboardComponent,
   FdzFundCardComponent,
   FdzFundDetailComponent, 
+  FdzHomeComponent,
   FdzLogoComponent
 } from '@fdz/components';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FdzButtonComponent,
     FdzDashboardComponent,
     FdzFundCardComponent,
     FdzFundDetailComponent,
+    FdzHomeComponent,
     FdzLogoComponent
   ],
   imports: [
