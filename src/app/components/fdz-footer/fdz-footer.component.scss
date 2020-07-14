@@ -1,0 +1,16 @@
+@import "fdz-styles";
+
+.fdz-footer {
+  text-align: center;
+  
+  p, a {
+    @include fdz-font(14);
+  }
+
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

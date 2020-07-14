@@ -7,16 +7,13 @@ import { Version } from '@angular/compiler';
   styleUrls: ['./fdz-home.component.scss']
 })
 export class FdzHomeComponent implements OnInit {
-
-  startYear = 2020;
-  year: number;
+  
   version: Version;
 
   constructor() { }
 
   ngOnInit(): void {
     this.version = VERSION;
-    this.year = new Date().getFullYear();
   }
 
 }

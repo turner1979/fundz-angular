@@ -1,21 +1,10 @@
 .fdz-dashboard {
   height: 100%;
-  
-  .fdz-dashboard__content {
-    height: 100%;
-    padding: 32px 16px;
-    background: #efefef;
-
-    .fdz-dashboard__content-inner {
-      margin: 0 auto;
-      max-width: 1200px;
-    }
-  }
 
   fdz-fund-card {
     ::ng-deep {
       .fdz-fund-card {
-        margin-bottom: 16px;
+        margin-bottom: 32px;
       }
     }
   }
