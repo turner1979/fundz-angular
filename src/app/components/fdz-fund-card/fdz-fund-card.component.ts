@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FdzFund } from '@fdz/models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fdz-fund-card',
@@ -10,7 +11,7 @@ export class FdzFundCardComponent implements OnInit {
 
   @Input() fund: FdzFund
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -28,6 +29,10 @@ export class FdzFundCardComponent implements OnInit {
 
   getPercentage(): string {
     return `${(100 / this.fund.target) * this.fund.current}%`;
+  }
+
+  onFundClick() {
+    this.router.navigate(['fund',this.fund.id]);
   }
 
 }

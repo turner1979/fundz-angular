@@ -1,0 +1,13 @@
+<div class="fdz-fund">
+
+  <fdz-header></fdz-header>
+  <fdz-content-container>
+
+    <ng-container *ngIf="fund$ | async as fund">
+      <fdz-fund-card [fund]="fund"></fdz-fund-card>
+    </ng-container>
+
+    <fdz-footer></fdz-footer>
+  </fdz-content-container>
+
+</div>
