@@ -13,6 +13,7 @@ import {
   FdzFundComponent,
   FdzFundCardComponent,
   FdzFundDetailComponent, 
+  FdzFundProgressComponent,
   FdzHeaderComponent,
   FdzHomeComponent,
   FdzLogoComponent
@@ -28,6 +29,7 @@ import {
     FdzFundComponent,
     FdzFundCardComponent,
     FdzFundDetailComponent,
+    FdzFundProgressComponent,
     FdzHeaderComponent,
     FdzHomeComponent,
     FdzLogoComponent

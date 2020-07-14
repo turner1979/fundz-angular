@@ -1,0 +1,12 @@
+<div class="fdz-fund-progress">
+  <div class="fdz-fund-progress__top">
+    <p>{{ progressTitle }}</p>
+    <p>{{ percentage }}%</p>
+  </div>
+  <div class="fdz-fund-progress__bar">
+    <div class="fdz-fund-progress__bar-current" [ngStyle]="barStyles"></div>
+  </div>
+  <div class="fdz-fund-progress__bottom">
+    <p>{{ fund?.current | currency: 'GBP' : 'symbol' : '1.0-0' }}</p>
+  </div>
+</div>

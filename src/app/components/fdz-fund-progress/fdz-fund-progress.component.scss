@@ -1,0 +1,42 @@
+@import "fdz-styles";
+
+$barHeight: 8px;
+
+.fdz-fund-progress {
+
+  p {
+    @include fdz-font(14);
+    margin: 0;
+  }
+  
+  .fdz-fund-progress__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p:nth-child(2) {
+      @include fdz-font(20, #222, 600);
+    }
+  }
+
+  .fdz-fund-progress__bar {
+    position: relative;
+    background: #ccc;
+    border-radius: $barHeight / 2;
+    height: $barHeight;
+    margin: 8px 0;
+
+    .fdz-fund-progress__bar-current {
+      background-image: $fundGradient;
+      border-radius: $barHeight / 2;
+      height: $barHeight;
+    }
+  }
+
+  .fdz-fund-progress__bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+}

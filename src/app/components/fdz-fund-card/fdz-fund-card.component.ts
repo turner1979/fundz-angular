@@ -17,20 +17,6 @@ export class FdzFundCardComponent implements OnInit {
 
   }
 
-  get barStyles(): any {
-    return {
-      'width' : this.getPercentage()
-    };
-  }
-
-  get percentage(): string {
-    return this.getPercentage();
-  }
-
-  getPercentage(): string {
-    return `${(100 / this.fund.target) * this.fund.current}%`;
-  }
-
   onFundClick() {
     this.router.navigate(['fund',this.fund.id]);
   }

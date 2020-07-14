@@ -5,7 +5,9 @@
     <ng-container *ngIf="funds$ | async as funds">
       <fdz-fund-card
         *ngFor="let fund of funds" 
-        [fund]="fund"></fdz-fund-card>
+        [fund]="fund">
+        <fdz-fund-progress [fund]="fund"></fdz-fund-progress>
+      </fdz-fund-card>
     </ng-container>
     <fdz-footer></fdz-footer>
   </fdz-content-container>

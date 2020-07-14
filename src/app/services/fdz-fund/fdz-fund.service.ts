@@ -7,7 +7,7 @@ const FUNDS: FdzFund[] = [
   { id: '1', current: 0, name: 'Ferrari', target: 90000 },
   { id: '2', current: 1200, name: 'Holiday', target: 2000 },
   { id: '3', current: 500, name: 'New Car', target: 10000 },
-  { id: '4', current: 500, name: 'Wedding', target: 5000 }
+  { id: '4', current: 5000, name: 'Wedding', target: 5000 }
 ];
 
 @Injectable({
