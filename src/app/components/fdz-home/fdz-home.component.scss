@@ -20,9 +20,8 @@
     flex-direction: column;
     width: 100%;
 
-    h1 {
-      @include fdz-font(36, #fff, 600);
-      margin: 0 0 16px 0;
+    fdz-logo {
+      margin-bottom: 16px;;
     }
 
     p {

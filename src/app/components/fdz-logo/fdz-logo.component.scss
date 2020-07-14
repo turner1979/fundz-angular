@@ -1,9 +1,10 @@
 @import "fdz-styles";
 
-.fdz-fund {
+.fdz-logo {
 
-  p {
-    @include fdz-font(24);
+  h1 {
+    @include fdz-font(16, #222, 600);
+    margin: 0;
   }
 
 }

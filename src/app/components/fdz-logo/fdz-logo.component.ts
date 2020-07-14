@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'fdz-logo',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FdzLogoComponent implements OnInit {
 
+  @Input() colour = '#222222';
+  @Input() fontSize = '16px';
+
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  get logoStyles() {
+    return {
+      'color' : this.colour,
+      'font-size' : this.fontSize
+    }
   }
 
 }

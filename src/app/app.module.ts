@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 // Path aliases are defined in tsconfig.base.json file to improve readability also (e.g. @fdz/components @fdz/models etc)
 import { 
   FdzButtonComponent,
+  FdzContentContainerComponent,
   FdzDashboardComponent,
   FdzFundCardComponent,
   FdzFundDetailComponent, 
+  FdzHeaderComponent,
   FdzHomeComponent,
   FdzLogoComponent
 } from '@fdz/components';
@@ -18,9 +20,11 @@ import {
   declarations: [
     AppComponent,
     FdzButtonComponent,
+    FdzContentContainerComponent,
     FdzDashboardComponent,
     FdzFundCardComponent,
     FdzFundDetailComponent,
+    FdzHeaderComponent,
     FdzHomeComponent,
     FdzLogoComponent
   ],

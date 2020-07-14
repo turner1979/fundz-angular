@@ -2,10 +2,10 @@
   
   <div class="fdz-home__content">
     <div class="fdz-home__logo"></div>
-    <h1>Fundz App</h1>
+    <fdz-logo [colour]="'#ffffff'" [fontSize]="'32px'"></fdz-logo>
     <p>Built with Angular {{ version?.full }}</p>
     <fdz-button [options]="{ text: 'View App' }" routerLink="/funds"></fdz-button>
-    <p>Copyright &copy; {{ year === startYear ? startYear : startYear + ' - ' + year }}</p>
+    <p>Copyright &copy; {{ year === startYear ? startYear : startYear + ' - ' + year }} | www.scottturner.co.uk </p>
   </div>
 
 </div>
