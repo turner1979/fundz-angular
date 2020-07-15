@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FdzDashboardComponent, FdzFundComponent, FdzHomeComponent } from '@fdz/components';
+import { FdzFundsComponent, FdzFundComponent, FdzHomeComponent } from '@fdz/components';
 
 const routes: Routes = [
   { path: '', component: FdzHomeComponent },
-  { path: 'funds', component: FdzDashboardComponent },
+  { path: 'funds', component: FdzFundsComponent },
   { path: 'fund/:id', component: FdzFundComponent }
 ];
 

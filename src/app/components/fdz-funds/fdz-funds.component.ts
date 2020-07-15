@@ -4,11 +4,11 @@ import { FdzFund } from '@fdz/models';
 import { FdzFundService } from '@fdz/services';
 
 @Component({
-  selector: 'fdz-dashboard',
-  templateUrl: './fdz-dashboard.component.html',
-  styleUrls: ['./fdz-dashboard.component.scss']
+  selector: 'fdz-funds',
+  templateUrl: './fdz-funds.component.html',
+  styleUrls: ['./fdz-funds.component.scss']
 })
-export class FdzDashboardComponent implements OnInit {
+export class FdzFundsComponent implements OnInit {
 
   funds$:Observable<FdzFund[]>;
 
