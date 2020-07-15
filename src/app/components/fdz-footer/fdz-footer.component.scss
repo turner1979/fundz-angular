@@ -5,6 +5,7 @@
   
   p, a {
     @include fdz-font(14);
+    margin-bottom: 0;
   }
 
   a {
