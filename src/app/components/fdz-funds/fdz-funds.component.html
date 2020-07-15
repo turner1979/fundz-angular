@@ -2,13 +2,13 @@
 
   <fdz-header></fdz-header>
   <fdz-content-container>
-    <ng-container *ngIf="funds$ | async as funds">
+    <div class="fdz-funds__grid" *ngIf="funds$ | async as funds">
       <fdz-fund-card
         *ngFor="let fund of funds" 
         [fund]="fund">
         <fdz-fund-progress [fund]="fund"></fdz-fund-progress>
       </fdz-fund-card>
-    </ng-container>
+    </div>
     <fdz-footer></fdz-footer>
   </fdz-content-container>
 
