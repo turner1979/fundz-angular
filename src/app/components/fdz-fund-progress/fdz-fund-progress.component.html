@@ -1,7 +1,7 @@
 <div class="fdz-fund-progress">
   <div class="fdz-fund-progress__top">
     <fdz-fund-pill [options]="pillOptions"></fdz-fund-pill>
-    <p>{{ percentage }}%</p>
+    <p>{{ percentage | number: '1.0-2' }}%</p>
   </div>
   <div class="fdz-fund-progress__bar">
     <div class="fdz-fund-progress__bar-current" [ngStyle]="barStyles"></div>
