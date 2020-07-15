@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Version, VERSION } from '@angular/core';
 
 @Component({
   selector: 'fdz-footer',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FdzFooterComponent implements OnInit {
 
   startYear = 2020;
+  version: Version;
   year: number;
 
   @Input() colour = '#222';
@@ -16,6 +17,7 @@ export class FdzFooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.year = new Date().getFullYear();
+    this.version = VERSION;
   }
 
   get textStyle() {
