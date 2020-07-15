@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Version, VERSION } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
 })
 export class FdzHeaderComponent implements OnInit {
 
+  version: Version;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
+    this.version = VERSION;
   }
 
   onBackClick() {

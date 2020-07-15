@@ -16,4 +16,8 @@
     cursor: pointer;
   }
 
+  p {
+    @include fdz-font(14, #222);
+  }
+
 }
