@@ -16,7 +16,8 @@ import {
   FdzFundProgressComponent,
   FdzHeaderComponent,
   FdzHomeComponent,
-  FdzLogoComponent
+  FdzLogoComponent,
+  FdzPillComponent
 } from '@fdz/components';
 
 @NgModule({
@@ -32,7 +33,8 @@ import {
     FdzFundProgressComponent,
     FdzHeaderComponent,
     FdzHomeComponent,
-    FdzLogoComponent
+    FdzLogoComponent,
+    FdzPillComponent
   ],
   imports: [
     BrowserModule,

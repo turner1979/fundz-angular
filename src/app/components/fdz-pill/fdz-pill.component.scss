@@ -1,0 +1,18 @@
+@import "fdz-styles";
+
+$base: #ffbdbd;
+$inProgress: #faf5b2;
+$complete: #cfffb6;
+
+.fdz-pill {
+  @include pillStyle();
+
+  &.fdz-pill--in-progress {
+    @include pillStyle($inProgress);
+  }
+
+  &.fdz-pill--complete {
+    @include pillStyle($complete);
+  }
+
+}

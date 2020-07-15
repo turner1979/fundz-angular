@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FdzFund } from '@fdz/models';
+import { FdzFund, FdzPill } from '@fdz/models';
 
 @Component({
   selector: 'fdz-fund-progress',
@@ -28,9 +28,10 @@ export class FdzFundProgressComponent implements OnInit {
     return (100 / this.fund.target) * this.fund.current;
   }
 
-  get progressTitle() {
-    let title: 'Fund Started' | 'Fund In Progress' | 'Fund Completed' = 'Fund Started'; 
-    return title = (this.percentage === 100 ?  'Fund Completed' : ((this.percentage > 0) ? 'Fund In Progress' : 'Fund Started'));
+  get pillOptions(): FdzPill {
+    return { 
+      text: (this.percentage === 100 ?  'Complete' : ((this.percentage > 0) ? 'In Progress' : 'Started')) 
+    };
   }
 
 }

@@ -10,3 +10,14 @@
   color: $fontColour;
   letter-spacing: 1px;
 }
+
+@mixin pillStyle($colour: $base) {
+  background: $colour;
+  padding: 4px 16px;
+  border-radius: 32px;
+
+  p {
+    @include fdz-font(12, darken($colour, 75%));
+    margin: 0;
+  }
+} 
