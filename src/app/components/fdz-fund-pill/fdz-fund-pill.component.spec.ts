@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FdzPillComponent } from './fdz-pill.component';
+import { FdzFundPillComponent } from './fdz-fund-pill.component';
 
 describe('FdzPillComponent', () => {
-  let component: FdzPillComponent;
-  let fixture: ComponentFixture<FdzPillComponent>;
+  let component: FdzFundPillComponent;
+  let fixture: ComponentFixture<FdzFundPillComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FdzPillComponent ]
+      declarations: [ FdzFundPillComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FdzPillComponent);
+    fixture = TestBed.createComponent(FdzFundPillComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

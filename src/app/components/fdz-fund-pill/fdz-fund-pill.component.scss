@@ -4,14 +4,14 @@ $base: #ffbdbd;
 $inProgress: #faf5b2;
 $complete: #cfffb6;
 
-.fdz-pill {
+.fdz-fund-pill {
   @include pillStyle();
 
-  &.fdz-pill--in-progress {
+  &.fdz-fund-pill--in-progress {
     @include pillStyle($inProgress);
   }
 
-  &.fdz-pill--complete {
+  &.fdz-fund-pill--complete {
     @include pillStyle($complete);
   }
 
