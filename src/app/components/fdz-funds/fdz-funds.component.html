@@ -8,7 +8,7 @@
     </div>
 
     <fdz-modal [visible]="addFundModalVisible" (closeModal)="setAddFundModalVisibility(false)">
-      <fdz-add-fund-form></fdz-add-fund-form>
+      <fdz-add-fund-form *ngIf="addFundModalVisible"></fdz-add-fund-form>
     </fdz-modal>
 
     <div class="fdz-funds__grid" *ngIf="funds$ | async as funds">
