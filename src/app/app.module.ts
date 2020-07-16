@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Barrel rolling is used to reduce number of import statements
 // Path aliases are defined in tsconfig.base.json file to improve readability also (e.g. @fdz/components @fdz/models etc)
 import { 
+  FdzAddFundFormComponent,
   FdzButtonComponent,
   FdzContentContainerComponent,
   FdzFooterComponent,
@@ -18,11 +20,13 @@ import {
   FdzHeaderComponent,
   FdzHomeComponent,
   FdzIconComponent,
-  FdzLogoComponent
+  FdzLogoComponent,
+  FdzModalComponent
 } from '@fdz/components';
 
 @NgModule({
   declarations: [
+    FdzAddFundFormComponent,
     AppComponent,
     FdzButtonComponent,
     FdzContentContainerComponent,
@@ -36,11 +40,13 @@ import {
     FdzHeaderComponent,
     FdzHomeComponent,
     FdzIconComponent,
-    FdzLogoComponent
+    FdzLogoComponent,
+    FdzModalComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

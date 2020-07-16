@@ -1,3 +1,4 @@
+export { FdzAddFundFormComponent } from './fdz-add-fund-form/fdz-add-fund-form.component';
 export { FdzButtonComponent } from './fdz-button/fdz-button.component';
 export { FdzContentContainerComponent } from './fdz-content-container/fdz-content-container.component';
 export { FdzFooterComponent } from './fdz-footer/fdz-footer.component';
@@ -11,3 +12,4 @@ export { FdzHeaderComponent } from './fdz-header/fdz-header.component';
 export { FdzHomeComponent } from './fdz-home/fdz-home.component';
 export { FdzIconComponent } from './fdz-icon/fdz-icon.component';
 export { FdzLogoComponent } from './fdz-logo/fdz-logo.component';
+export { FdzModalComponent } from './fdz-modal/fdz-modal.component';

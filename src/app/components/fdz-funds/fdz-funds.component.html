@@ -4,8 +4,12 @@
   <fdz-content-container>
   
     <div class="fdz-funds__controls">
-      <fdz-icon [iconClass]="'fas fa-plus'"></fdz-icon>
+      <fdz-icon [iconClass]="'fas fa-plus'" (click)="setAddFundModalVisibility(true)"></fdz-icon>
     </div>
+
+    <fdz-modal [visible]="addFundModalVisible" (closeModal)="setAddFundModalVisibility(false)">
+      <fdz-add-fund-form></fdz-add-fund-form>
+    </fdz-modal>
 
     <div class="fdz-funds__grid" *ngIf="funds$ | async as funds">
       <fdz-fund-card

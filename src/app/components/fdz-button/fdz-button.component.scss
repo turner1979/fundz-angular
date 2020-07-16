@@ -20,4 +20,11 @@
     }
   }
 
+  &.fdz-button--dark {
+    button {
+      background: #222;
+      @include fdz-font(14, #fff);
+    }
+  }
+
 }

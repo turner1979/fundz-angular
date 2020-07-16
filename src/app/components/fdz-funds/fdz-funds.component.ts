@@ -10,6 +10,7 @@ import { FdzFundService } from '@fdz/services';
 })
 export class FdzFundsComponent implements OnInit {
 
+  addFundModalVisible = true;
   funds$:Observable<FdzFund[]>;
 
   constructor (
@@ -22,6 +23,10 @@ export class FdzFundsComponent implements OnInit {
     this.fundService.getFunds().subscribe((funds) => {
       this.funds$ = of(funds);
     });
+  }
+
+  setAddFundModalVisibility(state: boolean) {
+    this.addFundModalVisible = state;
   }
 
 }

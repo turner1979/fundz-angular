@@ -1,0 +1,14 @@
+<div class="fdz-add-fund-form">
+
+  <form [formGroup]="newFundForm">
+    <p><strong>Add New Fund</strong></p>
+    <div class="fdz-add-fund-form__row">
+      <input type="text" formControlName="fundName" placeholder="Fund Name" />
+    </div> 
+    <div class="fdz-add-fund-form__row">
+      <input type="text" formControlName="fundTarget" placeholder="Fund Target" />
+    </div>
+    <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
+  </form>
+
+</div>

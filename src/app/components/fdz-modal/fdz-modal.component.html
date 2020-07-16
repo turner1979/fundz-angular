@@ -1,0 +1,11 @@
+<div class="fdz-modal" *ngIf="visible">
+
+  <div class="fdz-modal__overlay"></div>
+  <div class="fdz-modal__content">
+    <div class="fdz-modal_close" (click)="onCloseModal()">
+      <fdz-icon [iconClass]="'fas fa-times'"></fdz-icon>
+    </div>
+    <ng-content></ng-content>
+  </div>
+
+</div>
