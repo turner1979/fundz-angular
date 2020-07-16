@@ -1,0 +1,17 @@
+<div class="fdz-tabs">
+
+  <div class="fdz-tabs__tabs" *ngIf="options?.tabs">
+    <div 
+      class="fdz-tabs__tabs-tab" 
+      [ngClass]="{ 'fdz-tabs__tabs-tab--active' : options.activeIndex === i }"
+      *ngFor="let tab of options.tabs; let i = index;" 
+      (click)="onTabClick(i);">
+        <i *ngIf="tab?.iconClass" [ngClass]="tab.iconClass"></i>
+        <span>{{ tab.name }}</span>
+    </div>
+  </div>
+  <div class="fdz-tabs__content">
+    <ng-content></ng-content>
+  </div>
+
+</div>

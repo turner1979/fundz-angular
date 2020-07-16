@@ -26,7 +26,8 @@ import {
   FdzHomeComponent,
   FdzIconComponent,
   FdzLogoComponent,
-  FdzModalComponent
+  FdzModalComponent,
+  FdzTabsComponent
 } from '@fdz/components';
 
 @NgModule({
@@ -46,7 +47,8 @@ import {
     FdzHomeComponent,
     FdzIconComponent,
     FdzLogoComponent,
-    FdzModalComponent
+    FdzModalComponent,
+    FdzTabsComponent
   ],
   imports: [
     AppRoutingModule,

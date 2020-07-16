@@ -11,6 +11,7 @@ import { Observable, of } from 'rxjs';
 })
 export class FdzFundComponent implements OnInit {
 
+  activeTabIndex = 0;
   fund$: Observable<FdzFund>;
 
   constructor(
@@ -25,6 +26,10 @@ export class FdzFundComponent implements OnInit {
     this.fundService.getFund(id).subscribe((fund) => {
       this.fund$ = of(fund);
     });
+  }
+
+  onTabChange(index: number) {
+    this.activeTabIndex = index;
   }
 
 }
