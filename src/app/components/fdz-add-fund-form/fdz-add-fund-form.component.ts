@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FdzFundService } from '@fdz/services';
 
 @Component({
   selector: 'fdz-add-fund-form',
@@ -10,7 +11,7 @@ export class FdzAddFundFormComponent implements OnInit {
 
   newFundForm: FormGroup;
 
-  constructor() { }
+  constructor(private fundService: FdzFundService) { }
 
   ngOnInit(): void {
     this.setupForm();
@@ -33,7 +34,12 @@ export class FdzAddFundFormComponent implements OnInit {
 
   onSubmit() {
     if (this.newFundForm.valid) {
-      alert('submite');
+      this.fundService.addFund({
+        id: [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join(''), // Generates random token string. TODO: move to new token service
+        current: 0,
+        name: this.newFundForm.value.fundName,
+        target: this.newFundForm.value.fundTarget
+      });
     }
   }
 

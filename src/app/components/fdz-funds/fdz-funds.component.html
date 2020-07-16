@@ -11,7 +11,7 @@
       <fdz-add-fund-form *ngIf="addFundModalVisible"></fdz-add-fund-form>
     </fdz-modal>
 
-    <div class="fdz-funds__grid" *ngIf="funds$ | async as funds">
+    <div class="fdz-funds__grid" *ngIf="fundService.funds | async as funds">
       <fdz-fund-card
         *ngFor="let fund of funds" 
         [fund]="fund">
