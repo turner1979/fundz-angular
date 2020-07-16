@@ -9,4 +9,5 @@ export { FdzFundProgressComponent } from './fdz-fund-progress/fdz-fund-progress.
 export { FdzFundsComponent } from './fdz-funds/fdz-funds.component';
 export { FdzHeaderComponent } from './fdz-header/fdz-header.component';
 export { FdzHomeComponent } from './fdz-home/fdz-home.component';
+export { FdzIconComponent } from './fdz-icon/fdz-icon.component';
 export { FdzLogoComponent } from './fdz-logo/fdz-logo.component';

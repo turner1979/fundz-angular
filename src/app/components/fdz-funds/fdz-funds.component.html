@@ -2,6 +2,11 @@
 
   <fdz-header></fdz-header>
   <fdz-content-container>
+  
+    <div class="fdz-funds__controls">
+      <fdz-icon [iconClass]="'fas fa-plus'"></fdz-icon>
+    </div>
+
     <div class="fdz-funds__grid" *ngIf="funds$ | async as funds">
       <fdz-fund-card
         *ngFor="let fund of funds" 
@@ -9,7 +14,9 @@
         <fdz-fund-progress [fund]="fund"></fdz-fund-progress>
       </fdz-fund-card>
     </div>
+
     <fdz-footer></fdz-footer>
+
   </fdz-content-container>
 
 </div>

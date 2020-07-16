@@ -17,6 +17,7 @@ import {
   FdzFundsComponent,
   FdzHeaderComponent,
   FdzHomeComponent,
+  FdzIconComponent,
   FdzLogoComponent
 } from '@fdz/components';
 
@@ -34,6 +35,7 @@ import {
     FdzFundsComponent,
     FdzHeaderComponent,
     FdzHomeComponent,
+    FdzIconComponent,
     FdzLogoComponent
   ],
   imports: [

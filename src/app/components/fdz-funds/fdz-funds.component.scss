@@ -3,6 +3,12 @@
 .fdz-funds {
   height: 100%;
 
+  .fdz-funds__controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+
   .fdz-funds__grid {
     display: grid;
     column-gap: 16px;
