@@ -3,6 +3,10 @@ import { Observable, of, BehaviorSubject } from 'rxjs';
 import { List } from 'immutable';
 import { FdzFund } from '@fdz/models';
 
+enum LsKeys {
+  Funds = 'fdz_funds'
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,17 +23,13 @@ export class FdzFundService {
   }
 
   loadInitialData() {
-    // TODO: data should be retrieved from localstorage not hardcoded here
-    this._funds.next(List([
-      { id: '1', current: 0, name: 'Ferrari', target: 90000 },
-      { id: '2', current: 1200, name: 'Holiday', target: 2000 },
-      { id: '3', current: 500, name: 'New Car', target: 10000 },
-      { id: '4', current: 5000, name: 'Wedding', target: 5000 },
-      { id: '5', current: 100, name: 'Computer', target: 3000 }
-    ]));
+    this._funds.next(List(
+      this.getFundsDataFromLocalStorage()
+    ));
   }
 
   addFund(newFund: FdzFund): void {
+    this.saveFundsDataToLocalStorage(newFund);
     this._funds.next(this._funds.getValue().push(newFund));
   }
 
@@ -37,6 +37,22 @@ export class FdzFundService {
     const funds = this._funds.getValue();
     let index = funds.findIndex((fund: FdzFund) => fund.id === id);
     return of(funds.get(index));
+  }
+
+  getFundsDataFromLocalStorage(): Array<FdzFund> {
+    const funds = [];
+    if (localStorage.getItem(LsKeys.Funds) !== null) {
+      JSON.parse(localStorage.getItem(LsKeys.Funds)).map((fund) => { 
+        funds.push(fund); 
+      });
+    }
+    return funds;
+  }
+
+  saveFundsDataToLocalStorage(newFund: FdzFund) {
+    const allFunds = this.getFundsDataFromLocalStorage();
+    allFunds.push(newFund);
+    localStorage.setItem(LsKeys.Funds,JSON.stringify(allFunds));
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FdzFundService } from '@fdz/services';
 
@@ -10,6 +10,7 @@ import { FdzFundService } from '@fdz/services';
 export class FdzAddFundFormComponent implements OnInit {
 
   newFundForm: FormGroup;
+  @Output() newFundAdd = new EventEmitter<boolean>();
 
   constructor(private fundService: FdzFundService) { }
 
@@ -40,6 +41,7 @@ export class FdzAddFundFormComponent implements OnInit {
         name: this.newFundForm.value.fundName,
         target: this.newFundForm.value.fundTarget
       });
+      this.newFundAdd.emit(true);
     }
   }
 

@@ -8,9 +8,9 @@ import { FdzFundService } from '@fdz/services';
 })
 export class FdzFundsComponent implements OnInit {
 
-  addFundModalVisible = true;
+  addFundModalVisible = false;
 
-  constructor (private fundService: FdzFundService) {
+  constructor (public fundService: FdzFundService) {
 
   }
 
