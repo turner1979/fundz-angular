@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'fdz-add-fund-form',
@@ -18,9 +18,23 @@ export class FdzAddFundFormComponent implements OnInit {
 
   setupForm() {
     this.newFundForm = new FormGroup({
-      'fundName': new FormControl(''),
-      'fundTarget': new FormControl('')
+      'fundName': new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(20)
+      ]),
+      'fundTarget': new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(12)
+      ])
     });
+  }
+
+  onSubmit() {
+    if (this.newFundForm.valid) {
+      alert('submite');
+    }
   }
 
 }

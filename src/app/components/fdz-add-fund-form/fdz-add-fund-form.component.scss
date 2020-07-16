@@ -10,19 +10,32 @@
   .fdz-add-fund-form__row {
     margin-bottom: 16px;
     min-width: 300px;
-  }
 
-  input[type=text] {
-    width: 100%;
-    border: none;
-    background: #efefef;
-    border-radius: 4px;
-    height: 48px;
-    padding: 4px 16px 0;
-    @include fdz-font(14);
+    input[type=text] {
+      width: 100%;
+      border: none;
+      background: #efefef;
+      border-radius: 4px;
+      height: 48px;
+      padding: 4px 16px 0;
+      @include fdz-font(14);
+  
+      &:focus {
+        outline: none;
+      }
+  
+    }
 
-    &:focus {
-      outline: none;
+    &.fdz-add-fund-form__row--invalid {
+      input[type=text] {
+        background: #ffe2d1;
+      }
+    }
+
+    &.fdz-add-fund-form__row--valid {
+      input[type=text] {
+        background: #cfffb6;
+      }
     }
 
   }
