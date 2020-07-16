@@ -3,10 +3,10 @@
   <form [formGroup]="newFundForm">
     <p><strong>Add New Fund</strong></p>
     <div class="fdz-add-fund-form__row">
-      <input type="text" formControlName="fundName" placeholder="Fund Name" />
+      <input type="text" formControlName="fundName" placeholder="Fund Name" maxlength="20" />
     </div> 
     <div class="fdz-add-fund-form__row">
-      <input type="text" formControlName="fundTarget" placeholder="Fund Target" />
+      <input type="text" formControlName="fundTarget" placeholder="Fund Target" maxlength="8" mask="separator.0" thousandSeparator="," />
     </div>
     <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
   </form>
