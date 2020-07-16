@@ -7,12 +7,12 @@
       [ngClass]="{ 
         'fdz-add-fund-form__row--invalid' : newFundForm.controls['fundName'].invalid && newFundForm.controls['fundName'].dirty,
         'fdz-add-fund-form__row--valid' : newFundForm.controls['fundName'].valid }">
-        <input type="text" name="fundName" formControlName="fundName" placeholder="Fund Name" maxlength="20" />
+        <input type="text" name="fundName" formControlName="fundName" placeholder="Name" maxlength="20" />
     </div> 
     <div 
       class="fdz-add-fund-form__row" 
       [ngClass]="{ 'fdz-add-fund-form__row--invalid' : newFundForm.controls['fundTarget'].invalid && newFundForm.controls['fundTarget'].dirty }">
-        <input type="text" name="fundTarget" formControlName="fundTarget" placeholder="Fund Target" maxlength="12" mask="separator.0" thousandSeparator="," />
+        <input type="text" name="fundTarget" formControlName="fundTarget" placeholder="Target" maxlength="12" mask="separator.0" thousandSeparator="," />
     </div>
     <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
   </form>
