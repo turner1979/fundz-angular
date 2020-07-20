@@ -69,10 +69,11 @@ export class FdzFundComponent implements OnInit {
 
   onEditFundSubmit() {
     if (this.editFundForm.valid) {
-      const updatedFund = this.fund;
-      updatedFund.name = this.editFundForm.value.name;
-      updatedFund.target = this.editFundForm.value.target;
-      this.fundService.editFund(updatedFund);
+      this.fundService.editFund(
+        this.fund, 
+        this.editFundForm.value.name, 
+        this.editFundForm.value.target
+      );
     }
   }
 

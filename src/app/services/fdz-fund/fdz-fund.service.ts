@@ -39,9 +39,14 @@ export class FdzFundService {
     return of(funds.get(index));
   }
 
-  editFund(updatedFund: FdzFund) {
-    console.log(updatedFund);
-    // TODO: edit fund
+  editFund(fund: FdzFund, name: string, target: number) {
+    fund.name = name;
+    fund.target = target;
+    this.funds.subscribe((funds) => {
+      const allFunds = [];
+      funds.map(fund => allFunds.push(fund));
+      this.saveAllFundsDataToLocalStorage(allFunds);
+    });
   }
 
   getFundsDataFromLocalStorage(): Array<FdzFund> {
@@ -58,6 +63,10 @@ export class FdzFundService {
     const allFunds = this.getFundsDataFromLocalStorage();
     allFunds.push(newFund);
     localStorage.setItem(LsKeys.Funds,JSON.stringify(allFunds));
+  }
+
+  saveAllFundsDataToLocalStorage(funds: FdzFund[]) {
+    localStorage.setItem(LsKeys.Funds,JSON.stringify(funds));
   }
 
 }
