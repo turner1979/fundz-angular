@@ -16,14 +16,18 @@ $tableBorderColour: #efefef;
     margin: 16px -16px;
   }
 
+  p {
+    @include fdz-font(14);
+  }
+
   table {
     width: 100%;
     text-align: left;
     border: 1px solid darken($tableBorderColour, 10%);
 
     thead {
-      border: 1px solid darken(#64b83d, 10%);
-      background: #64b83d;
+      background: #777;
+      border: 1px solid #777;
       tr {
         th {
           @include fdz-font(14, #fff, 600);
@@ -39,7 +43,7 @@ $tableBorderColour: #efefef;
       tr {
         background: lighten($tableBorderColour, 10%);
         td {
-          @include fdz-font(14);
+          @include fdz-font(12);
           padding: 8px;
           &:nth-child(1) {
             width: 25%;
