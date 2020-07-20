@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FdzFundService } from '@fdz/services';
 
 @Component({
@@ -10,7 +11,10 @@ export class FdzFundsComponent implements OnInit {
 
   addFundModalVisible = false;
 
-  constructor (public fundService: FdzFundService) {
+  constructor (
+    public fundService: FdzFundService,
+    private router: Router
+  ) {
 
   }
 
@@ -20,6 +24,10 @@ export class FdzFundsComponent implements OnInit {
 
   setAddFundModalVisibility(state: boolean) {
     this.addFundModalVisible = state;
+  }
+
+  onBackClick() {
+    this.router.url === '/funds' ? this.router.navigate(['/']) : this.router.navigate(['/funds']);
   }
 
 }

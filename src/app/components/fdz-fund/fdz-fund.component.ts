@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FdzFundService } from '@fdz/services';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FdzFund } from '@fdz/models';
 import { Observable, of } from 'rxjs';
 
@@ -16,7 +16,8 @@ export class FdzFundComponent implements OnInit {
 
   constructor(
     private fundService: FdzFundService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { 
 
   }
@@ -30,6 +31,10 @@ export class FdzFundComponent implements OnInit {
 
   onTabChange(index: number) {
     this.activeTabIndex = index;
+  }
+
+  onBackClick() {
+    this.router.url === '/funds' ? this.router.navigate(['/']) : this.router.navigate(['/funds']);
   }
 
 }

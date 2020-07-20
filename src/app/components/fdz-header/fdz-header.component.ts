@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'fdz-header',
@@ -8,14 +7,10 @@ import { Router } from '@angular/router';
 })
 export class FdzHeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
     
-  }
-
-  onBackClick() {
-    this.router.url === '/funds' ? this.router.navigate(['/']) : this.router.navigate(['/funds']);
   }
 
 }

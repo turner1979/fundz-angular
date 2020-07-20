@@ -8,27 +8,7 @@
   padding: 0 16px;
   height: 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background: #fff;
-
-  p {
-    @include fdz-font(14, #222);
-  }
-
-  .fdz-header__spacer {
-    width: 32px;
-  }
-
-  fdz-icon {
-    ::ng-deep > div {
-      background: transparent;
-      border: 1px solid #222;
-
-      i {
-        color: #222;
-      }
-    }
-  }
-
 }

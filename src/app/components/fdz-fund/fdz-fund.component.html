@@ -3,6 +3,10 @@
   <fdz-header></fdz-header>
   <fdz-content-container>
 
+    <div class="fdz-fund__controls">
+      <fdz-icon [iconClass]="'fas fa-chevron-left'" (click)="onBackClick()"></fdz-icon>
+    </div>
+
     <ng-container *ngIf="fund$ | async as fund">
       <fdz-fund-card [fund]="fund" [showEdit]="false">
        
