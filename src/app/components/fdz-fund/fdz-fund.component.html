@@ -9,6 +9,8 @@
 
     <ng-container *ngIf="fund$ | async as fund">
       <fdz-fund-card [fund]="fund" [showEdit]="false">
+
+        <fdz-fund-progress [fund]="fund"></fdz-fund-progress>
        
         <fdz-tabs [options]="{ 
           activeIndex: activeTabIndex,
@@ -20,9 +22,6 @@
         }" (tabChange)="onTabChange($event);">
 
         <ng-container *ngIf="activeTabIndex === 0">
-          <fdz-fund-progress [fund]="fund"></fdz-fund-progress>
-
-          <div class="fdz-fund__divider"></div>
 
           <p><strong>Contributions</strong></p>
 
@@ -39,7 +38,7 @@
                 <tr *ngFor="let contribution of fund?.contributions">
                   <td>{{ contribution?.date }}</td>
                   <td>{{ contribution?.name }}</td>
-                  <td>{{ contribution?.amount }}</td>
+                  <td>£{{ contribution?.amount }}</td>
                 </tr>
               </tbody>
             </table>
@@ -51,14 +50,13 @@
         </ng-container>
         <ng-container *ngIf="activeTabIndex === 1">
 
-          <p><strong>Edit Fund</strong></p>
-
           <form class="fdz-fund__form" [formGroup]="editFundForm" (ngSubmit)="onEditFundSubmit()">
             <ng-container *ngIf="editSuccessMessageVisible; else showEditForm">
               <fdz-message [options]="{ text: ['Fund details edited successfully'], type: 'success' }"></fdz-message>
               <fdz-button [options]="{ dark: true, text: 'ok', type: 'button' }" (click)="onEditFundSuccessButton()"></fdz-button>
             </ng-container>
-            <ng-template #showEditForm>            
+            <ng-template #showEditForm>    
+              <p><strong>Edit Fund</strong></p>        
               <div class="fdz-fund__form-row" [ngClass]="{ 
                 'invalid' : editFundForm.controls['name'].invalid && editFundForm.controls['name'].dirty,
                 'valid' : editFundForm.controls['name'].valid && editFundForm.controls['name'].dirty }">
@@ -79,7 +77,6 @@
         </ng-container>
         <ng-container *ngIf="activeTabIndex === 2">
 
-          <p><strong>Add Contribution</strong></p>
           <form class="fdz-fund__form" [formGroup]="addContributionForm" (ngSubmit)="onAddContributionSubmit()">
             
             <ng-container *ngIf="addContributionSuccessMessageVisible; else addContributions">
@@ -92,6 +89,7 @@
                 <fdz-message [options]="{ text: ['Fund target of £' + fund.target +' has been reached'], type: 'success' }"></fdz-message>
               </ng-container>
               <ng-template #showAddContributionForm>
+                <p><strong>Add Contribution</strong></p>
                 <div class="fdz-fund__form-row" [ngClass]="{ 
                   'invalid' : addContributionForm.controls['date'].invalid && addContributionForm.controls['date'].dirty,
                   'valid' : addContributionForm.controls['date'].valid && addContributionForm.controls['date'].dirty }">

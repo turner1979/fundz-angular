@@ -12,9 +12,12 @@ $tableBorderColour: #efefef;
     margin-bottom: 16px;
   }
 
-  .fdz-fund__divider {
-    border-top: 1px solid darken($tableBorderColour, 10%);
-    margin: 16px -16px;
+  fdz-fund-progress + fdz-tabs {
+    ::ng-deep {
+      > div {
+        margin-top: 16px;
+      }
+    }
   }
 
   p {

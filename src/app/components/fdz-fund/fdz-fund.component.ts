@@ -81,6 +81,8 @@ export class FdzFundComponent implements OnInit {
 
   onTabChange(index: number): void {
     this.activeTabIndex = index;
+    this.editSuccessMessageVisible = false;
+    this.addContributionSuccessMessageVisible = false;
   }
 
   onBackClick(): void {
