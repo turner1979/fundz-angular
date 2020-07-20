@@ -21,6 +21,36 @@
 
         <ng-container *ngIf="activeTabIndex === 0">
           <fdz-fund-progress [fund]="fund"></fdz-fund-progress>
+
+          <div class="fdz-fund__divider"></div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>00/00/00</td>
+                <td>Fund Name</td>
+                <td>£0.00</td>
+              </tr>
+              <tr>
+                <td>00/00/00</td>
+                <td>Fund Name</td>
+                <td>£0.00</td>
+              </tr>
+              <tr>
+                <td>00/00/00</td>
+                <td>Fund Name</td>
+                <td>£0.00</td>
+              </tr>
+            </tbody>
+          </table>
+
         </ng-container>
         <ng-container *ngIf="activeTabIndex === 1">edit</ng-container>
         <ng-container *ngIf="activeTabIndex === 2">add contribution</ng-container>

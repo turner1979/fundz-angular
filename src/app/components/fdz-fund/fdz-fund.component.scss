@@ -1,5 +1,7 @@
 @import "fdz-styles";
 
+$tableBorderColour: #efefef;
+
 .fdz-fund {
   height: 100%;
 
@@ -7,6 +9,56 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
+  }
+
+  .fdz-fund__divider {
+    border-top: 1px solid darken($tableBorderColour, 10%);
+    margin: 16px -16px;
+  }
+
+  table {
+    width: 100%;
+    text-align: left;
+    border: 1px solid darken($tableBorderColour, 10%);
+
+    thead {
+      border: 1px solid darken(#64b83d, 10%);
+      background: #64b83d;
+      tr {
+        th {
+          @include fdz-font(14, #fff, 600);
+          padding: 8px;
+          &:nth-child(3) {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        background: lighten($tableBorderColour, 10%);
+        td {
+          @include fdz-font(14);
+          padding: 8px;
+          &:nth-child(1) {
+            width: 25%;
+          }
+          &:nth-child(2) {
+            width: 50%;
+          }
+          &:nth-child(3) {
+            width: 25%;
+            text-align: right;
+          }
+        }
+
+        &:nth-child(even) {
+          background: $tableBorderColour;
+        }
+      }
+      
+    }
   }
   
 }
