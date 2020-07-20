@@ -11,5 +11,6 @@ export { FdzHeaderComponent } from './fdz-header/fdz-header.component';
 export { FdzHomeComponent } from './fdz-home/fdz-home.component';
 export { FdzIconComponent } from './fdz-icon/fdz-icon.component';
 export { FdzLogoComponent } from './fdz-logo/fdz-logo.component';
+export { FdzMessageComponent } from './fdz-message/fdz-message.component';
 export { FdzModalComponent } from './fdz-modal/fdz-modal.component';
 export { FdzTabsComponent } from './fdz-tabs/fdz-tabs.component';

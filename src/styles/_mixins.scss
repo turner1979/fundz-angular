@@ -11,6 +11,20 @@
   letter-spacing: 1px;
 }
 
+@mixin messageStyle($colour: #efefef) {
+  background: $colour;
+  padding: 16px;
+  border-radius: 4px;
+
+  p {
+    @include fdz-font(12, darken($colour, 75%));
+    margin: 0;
+    + p {
+      margin-top: 16px;
+    }
+  }
+} 
+
 @mixin pillStyle($colour: $base) {
   background: $colour;
   padding: 4px 16px;

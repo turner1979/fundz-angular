@@ -15,6 +15,7 @@ export class FdzFundComponent implements OnInit {
   activeTabIndex = 1;
   addContributionForm: FormGroup;
   editFundForm: FormGroup;
+  editSuccessMessageVisible = false;
   fund$: Observable<FdzFund>;
   fund: FdzFund;
   id: string;
@@ -74,7 +75,17 @@ export class FdzFundComponent implements OnInit {
         this.editFundForm.value.name, 
         this.editFundForm.value.target
       );
+      this.editSuccessMessageVisible = true;
+      this.editFundForm.reset({
+        'name' : this.fund.name,
+        'target' : this.fund.target
+      });
     }
+  }
+
+  onEditFundSuccessButton() {
+    this.editSuccessMessageVisible = false;
+    this.activeTabIndex = 0;
   }
 
   onAddContributionSubmit() {

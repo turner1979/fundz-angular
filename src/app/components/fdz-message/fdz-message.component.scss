@@ -1,0 +1,22 @@
+@import "fdz-styles";
+
+$error: #ffe2d1;
+$info: #baf4ff;
+$success: #cfffb6;
+
+.fdz-message {
+  @include messageStyle();
+
+  &.fdz-message--error {
+    @include messageStyle($error);
+  }
+
+  &.fdz-message--info {
+    @include messageStyle($info);
+  }
+
+  &.fdz-message--success {
+    @include messageStyle($success);
+  }
+
+}

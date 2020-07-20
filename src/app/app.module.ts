@@ -25,6 +25,7 @@ import {
   FdzHomeComponent,
   FdzIconComponent,
   FdzLogoComponent,
+  FdzMessageComponent,
   FdzModalComponent,
   FdzTabsComponent
 } from '@fdz/components';
@@ -46,6 +47,7 @@ import {
     FdzIconComponent,
     FdzLogoComponent,
     FdzModalComponent,
+    FdzMessageComponent,
     FdzTabsComponent
   ],
   imports: [

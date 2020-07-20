@@ -68,11 +68,19 @@ $tableBorderColour: #efefef;
 
   .fdz-fund__form {
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
 
     .fdz-fund__form-row {
       margin-bottom: 16px;
       @include formInput();
+    }
+
+    fdz-message + fdz-button {
+      ::ng-deep {
+        > div {
+          margin-top: 16px;
+        }
+      }
     }
   }
   

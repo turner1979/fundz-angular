@@ -56,7 +56,13 @@
         <ng-container *ngIf="activeTabIndex === 1">
 
           <p><strong>Edit Fund</strong></p>
+
           <form class="fdz-fund__form" [formGroup]="editFundForm" (ngSubmit)="onEditFundSubmit()">
+          <ng-container *ngIf="editSuccessMessageVisible; else showEditForm">
+            <fdz-message [options]="{ text: ['Fund details edited successfully'], type: 'success' }"></fdz-message>
+            <fdz-button [options]="{ dark: true, text: 'ok', type: 'button' }" (click)="onEditFundSuccessButton()"></fdz-button>
+          </ng-container>
+          <ng-template #showEditForm>            
             <div class="fdz-fund__form-row" [ngClass]="{ 
               'invalid' : editFundForm.controls['name'].invalid && editFundForm.controls['name'].dirty,
               'valid' : editFundForm.controls['name'].valid && editFundForm.controls['name'].dirty }">
@@ -67,8 +73,9 @@
               'valid' : editFundForm.controls['target'].valid && editFundForm.controls['target'].dirty }">
               <input type="text" formControlName="target" [placeholder]="fund?.target" maxlength="12" mask="separator.0" thousandSeparator="," />
             </div>
-            <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
-          </form>
+            <fdz-button [options]="{ dark: true, text: 'Edit', type: 'submit' }"></fdz-button>
+          </ng-template>
+        </form>
 
         </ng-container>
         <ng-container *ngIf="activeTabIndex === 2">
