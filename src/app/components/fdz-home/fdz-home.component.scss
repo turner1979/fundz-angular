@@ -24,18 +24,9 @@
       margin-bottom: 16px;;
     }
 
-    p {
-      @include fdz-font(14, #fff);
-      margin: 0 0 16px 0;
-    }
-
     fdz-button {
       width: 100%;
       max-width: 300px;
-
-      + p {
-        margin-top: 16px;
-      }
     }
 
   }

@@ -1,5 +1,4 @@
-import { Component, OnInit, VERSION } from '@angular/core';
-import { Version } from '@angular/compiler';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fdz-home',
@@ -7,13 +6,11 @@ import { Version } from '@angular/compiler';
   styleUrls: ['./fdz-home.component.scss']
 })
 export class FdzHomeComponent implements OnInit {
-  
-  version: Version;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.version = VERSION;
+
   }
 
 }
