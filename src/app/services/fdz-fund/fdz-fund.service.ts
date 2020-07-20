@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { List } from 'immutable';
-import { FdzFund } from '@fdz/models';
+import { FdzFund, FdzFundContribution } from '@fdz/models';
 
 enum LsKeys {
   Funds = 'fdz_funds'
@@ -18,11 +18,11 @@ export class FdzFundService {
     this.loadInitialData();
   }
 
-  get funds() {
+  get funds(): Observable<List<FdzFund>> {
     return this._funds.asObservable();
   }
 
-  loadInitialData() {
+  loadInitialData(): void {
     this._funds.next(List(
       this.getFundsDataFromLocalStorage()
     ));
@@ -39,9 +39,22 @@ export class FdzFundService {
     return of(funds.get(index));
   }
 
-  editFund(fund: FdzFund, name: string, target: number) {
+  editFund(fund: FdzFund, name: string, target: number): void {
     fund.name = name;
     fund.target = target;
+    this.funds.subscribe((funds) => {
+      const allFunds = [];
+      funds.map(fund => allFunds.push(fund));
+      this.saveAllFundsDataToLocalStorage(allFunds);
+    });
+  }
+
+  addContribution(fund: FdzFund, contribution: FdzFundContribution): void {
+    if (!fund.contributions) {
+      fund['contributions'] = [];
+    } 
+    fund.contributions.push(contribution);
+    fund.current = this.getContributionsTotalValue(fund);
     this.funds.subscribe((funds) => {
       const allFunds = [];
       funds.map(fund => allFunds.push(fund));
@@ -59,14 +72,24 @@ export class FdzFundService {
     return funds;
   }
 
-  saveFundsDataToLocalStorage(newFund: FdzFund) {
+  saveFundsDataToLocalStorage(newFund: FdzFund): void {
     const allFunds = this.getFundsDataFromLocalStorage();
     allFunds.push(newFund);
     localStorage.setItem(LsKeys.Funds,JSON.stringify(allFunds));
   }
 
-  saveAllFundsDataToLocalStorage(funds: FdzFund[]) {
+  saveAllFundsDataToLocalStorage(funds: FdzFund[]): void {
     localStorage.setItem(LsKeys.Funds,JSON.stringify(funds));
+  }
+
+  getContributionsTotalValue(fund: FdzFund):number {
+    let totalContributions = 0;
+    if (typeof fund.contributions !== 'undefined') {
+      fund.contributions.map((contribution) => {
+        totalContributions += Number(contribution.amount);
+      });
+    }
+    return totalContributions;
   }
 
 }
