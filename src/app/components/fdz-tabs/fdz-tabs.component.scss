@@ -45,6 +45,7 @@ $tabRadius: 4px;
   .fdz-tabs__content {
     margin-top: -1px;
     border: 1px solid darken($taBg,10%);
+    border-top-right-radius: $tabRadius;
     border-bottom-left-radius: $tabRadius;
     border-bottom-right-radius: $tabRadius;
     padding: 16px;

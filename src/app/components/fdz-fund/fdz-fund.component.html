@@ -69,6 +69,9 @@
                 'valid' : editFundForm.controls['target'].valid && editFundForm.controls['target'].dirty }">
                 <input type="text" formControlName="target" [placeholder]="fund?.target" maxlength="12" mask="separator.0" thousandSeparator="," />
               </div>
+              <div class="fdz-fund__form-row" *ngIf="editFundForm.controls['target'].errors?.min">
+                <fdz-message [options]="{ text: ['Target must be greater or equal to fund contributions of £' + editFundForm.controls['target'].errors?.min?.min], type: 'error' }"></fdz-message>  
+              </div>
               <fdz-button [options]="{ dark: true, text: 'Edit', type: 'submit' }"></fdz-button>
             </ng-template>
           </form>
@@ -78,27 +81,35 @@
 
           <p><strong>Add Contribution</strong></p>
           <form class="fdz-fund__form" [formGroup]="addContributionForm" (ngSubmit)="onAddContributionSubmit()">
-            <ng-container *ngIf="addContributionSuccessMessageVisible; else showAddContributionForm">
+            
+            <ng-container *ngIf="addContributionSuccessMessageVisible; else addContributions">
               <fdz-message [options]="{ text: ['Contribution added successfully'], type: 'success' }"></fdz-message>
               <fdz-button [options]="{ dark: true, text: 'ok', type: 'button' }" (click)="onAddContributionSuccessButton()"></fdz-button>
             </ng-container>
-            <ng-template #showAddContributionForm>
-              <div class="fdz-fund__form-row" [ngClass]="{ 
-                'invalid' : addContributionForm.controls['date'].invalid && addContributionForm.controls['date'].dirty,
-                'valid' : addContributionForm.controls['date'].valid && addContributionForm.controls['date'].dirty }">
-                <input type="text" formControlName="date" placeholder="Date DD/MM/YYYY" mask="00/00/0000" maxlength="10" />
-              </div>
-              <div class="fdz-fund__form-row" [ngClass]="{ 
-                'invalid' : addContributionForm.controls['name'].invalid && addContributionForm.controls['name'].dirty,
-                'valid' : addContributionForm.controls['name'].valid && addContributionForm.controls['name'].dirty }">
-                <input type="text" formControlName="name" placeholder="Name" maxlength="20" />
-              </div>
-              <div class="fdz-fund__form-row" [ngClass]="{ 
-                'invalid' : addContributionForm.controls['amount'].invalid && addContributionForm.controls['amount'].dirty,
-                'valid' : addContributionForm.controls['amount'].valid && addContributionForm.controls['amount'].dirty }">
-                <input type="text" formControlName="amount" placeholder="Amount" maxlength="12" mask="separator.0" thousandSeparator="," />
-              </div>
-              <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
+            <ng-template #addContributions>
+
+              <ng-container *ngIf="fund.current >= fund.target; else showAddContributionForm">
+                <fdz-message [options]="{ text: ['Fund target of £' + fund.target +' has been reached'], type: 'success' }"></fdz-message>
+              </ng-container>
+              <ng-template #showAddContributionForm>
+                <div class="fdz-fund__form-row" [ngClass]="{ 
+                  'invalid' : addContributionForm.controls['date'].invalid && addContributionForm.controls['date'].dirty,
+                  'valid' : addContributionForm.controls['date'].valid && addContributionForm.controls['date'].dirty }">
+                  <input type="text" formControlName="date" placeholder="Date DD/MM/YYYY" mask="00/00/0000" maxlength="10" />
+                </div>
+                <div class="fdz-fund__form-row" [ngClass]="{ 
+                  'invalid' : addContributionForm.controls['name'].invalid && addContributionForm.controls['name'].dirty,
+                  'valid' : addContributionForm.controls['name'].valid && addContributionForm.controls['name'].dirty }">
+                  <input type="text" formControlName="name" placeholder="Name" maxlength="20" />
+                </div>
+                <div class="fdz-fund__form-row" [ngClass]="{ 
+                  'invalid' : addContributionForm.controls['amount'].invalid && addContributionForm.controls['amount'].dirty,
+                  'valid' : addContributionForm.controls['amount'].valid && addContributionForm.controls['amount'].dirty }">
+                  <input type="text" formControlName="amount" placeholder="Amount" maxlength="12" mask="separator.0" thousandSeparator="," />
+                </div>
+                <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
+              </ng-template>
+
             </ng-template>
           </form>
         </ng-container>

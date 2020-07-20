@@ -16,6 +16,7 @@ export class FdzFundComponent implements OnInit {
   addContributionForm: FormGroup;
   addContributionSuccessMessageVisible = false;
   editFundForm: FormGroup;
+  editFundTargetControl: FormControl;
   editSuccessMessageVisible = false;
   fund$: Observable<FdzFund>;
   fund: FdzFund;
@@ -35,11 +36,11 @@ export class FdzFundComponent implements OnInit {
       this.fund$ = of(fund);
       this.fund = fund;
       this.setupForms();
+      this.setFormControlRefs();
     });
   }
 
   setupForms(): void {
-
     this.editFundForm = new FormGroup({
       'name': new FormControl(this.fund.name, [
         Validators.required,
@@ -49,8 +50,9 @@ export class FdzFundComponent implements OnInit {
       'target': new FormControl(this.fund.target, [
         Validators.required,
         Validators.minLength(2),
-        Validators.maxLength(12)
-      ]),
+        Validators.maxLength(12),
+        Validators.min(this.fund.current)
+      ])
     });
 
     this.addContributionForm = new FormGroup({
@@ -71,6 +73,10 @@ export class FdzFundComponent implements OnInit {
       ]),
     });
 
+  }
+
+  setFormControlRefs(): void {
+    this.editFundTargetControl = this.editFundForm.get('target') as FormControl;
   }
 
   onTabChange(index: number): void {
@@ -110,12 +116,23 @@ export class FdzFundComponent implements OnInit {
       });
       this.addContributionSuccessMessageVisible = true;
       this.addContributionForm.reset();
+      this.updateEditFormValidation();
     }
   }
 
   onAddContributionSuccessButton(): void {
     this.addContributionSuccessMessageVisible = false;
     this.activeTabIndex = 0;
+  }
+
+  updateEditFormValidation() {
+    this.editFundTargetControl.setValidators([
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(12),
+      Validators.min(this.fund.current)
+    ]);
+    this.editFundTargetControl.updateValueAndValidity();
   }
 
 }
