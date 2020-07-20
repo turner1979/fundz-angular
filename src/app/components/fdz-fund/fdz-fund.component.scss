@@ -1,5 +1,6 @@
 @import "fdz-styles";
 
+$formInputColour: #efefef;
 $tableBorderColour: #efefef;
 
 .fdz-fund {
@@ -62,6 +63,16 @@ $tableBorderColour: #efefef;
         }
       }
       
+    }
+  }
+
+  .fdz-fund__form {
+    width: 100%;
+    max-width: 300px;
+
+    .fdz-fund__form-row {
+      margin-bottom: 16px;
+      @include formInput();
     }
   }
   

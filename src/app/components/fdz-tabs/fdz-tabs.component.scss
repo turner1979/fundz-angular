@@ -19,6 +19,7 @@ $tabRadius: 4px;
 
       span {
         @include fdz-font(14);
+        display: none;
       }
 
       i + span {
@@ -47,6 +48,14 @@ $tabRadius: 4px;
     border-bottom-left-radius: $tabRadius;
     border-bottom-right-radius: $tabRadius;
     padding: 16px;
+  }
+
+  @include breakpoint('small') {
+    .fdz-tabs__tabs {
+      .fdz-tabs__tabs-tab span {
+        display: inline;
+      }
+    }
   }
 
 }

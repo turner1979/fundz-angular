@@ -39,6 +39,11 @@ export class FdzFundService {
     return of(funds.get(index));
   }
 
+  editFund(updatedFund: FdzFund) {
+    console.log(updatedFund);
+    // TODO: edit fund
+  }
+
   getFundsDataFromLocalStorage(): Array<FdzFund> {
     const funds = [];
     if (localStorage.getItem(LsKeys.Funds) !== null) {

@@ -25,7 +25,6 @@
           <div class="fdz-fund__divider"></div>
 
           <p><strong>Fund Contributions</strong></p>
-
           <table>
             <thead>
               <tr>
@@ -54,8 +53,41 @@
           </table>
 
         </ng-container>
-        <ng-container *ngIf="activeTabIndex === 1">edit</ng-container>
-        <ng-container *ngIf="activeTabIndex === 2">add contribution</ng-container>
+        <ng-container *ngIf="activeTabIndex === 1">
+
+          <p><strong>Edit Fund</strong></p>
+          <form class="fdz-fund__form" [formGroup]="editFundForm" (ngSubmit)="onEditFundSubmit()">
+            <div class="fdz-fund__form-row" [ngClass]="{ 
+              'invalid' : editFundForm.controls['name'].invalid && editFundForm.controls['name'].dirty,
+              'valid' : editFundForm.controls['name'].valid && editFundForm.controls['name'].dirty }">
+              <input type="text" formControlName="name" [placeholder]="fund?.name" />
+            </div>
+            <div class="fdz-fund__form-row" [ngClass]="{ 
+              'invalid' : editFundForm.controls['target'].invalid && editFundForm.controls['target'].dirty,
+              'valid' : editFundForm.controls['target'].valid && editFundForm.controls['target'].dirty }">
+              <input type="text" formControlName="target" [placeholder]="fund?.target" maxlength="12" mask="separator.0" thousandSeparator="," />
+            </div>
+            <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
+          </form>
+
+        </ng-container>
+        <ng-container *ngIf="activeTabIndex === 2">
+
+          <p><strong>Add Contribution</strong></p>
+          <form class="fdz-fund__form" [formGroup]="addContributionForm" (ngSubmit)="onAddContributionSubmit()">
+            <div class="fdz-fund__form-row">
+              <input type="text" formControlName="date" placeholder="Date DD/MM/YY" />
+            </div>
+            <div class="fdz-fund__form-row">
+              <input type="text" formControlName="name" placeholder="Name" />
+            </div>
+            <div class="fdz-fund__form-row">
+              <input type="text" formControlName="amount" placeholder="Amount" />
+            </div>
+            <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
+          </form>
+
+        </ng-container>
 
       </fdz-tabs>
 
