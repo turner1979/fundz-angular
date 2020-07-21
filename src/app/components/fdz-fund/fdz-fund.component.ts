@@ -14,8 +14,12 @@ export class FdzFundComponent implements OnInit {
 
   activeTabIndex = 0;
   addContributionForm: FormGroup;
+  addContributionAmountControl: FormControl;
+  addContributionDateControl: FormControl;
+  addContributionNameControl: FormControl;
   addContributionSuccessMessageVisible = false;
   editFundForm: FormGroup;
+  editFundNameControl: FormControl;
   editFundTargetControl: FormControl;
   editSuccessMessageVisible = false;
   fund$: Observable<FdzFund>;
@@ -37,46 +41,68 @@ export class FdzFundComponent implements OnInit {
       this.fund = fund;
       this.setupForms();
       this.setFormControlRefs();
+      this.addFormValidation();
     });
   }
 
   setupForms(): void {
-    this.editFundForm = new FormGroup({
-      'name': new FormControl(this.fund.name, [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(20)
-      ]),
-      'target': new FormControl(this.fund.target, [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(12),
-        Validators.min(this.fund.current)
-      ])
-    });
-
     this.addContributionForm = new FormGroup({
-      'date': new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(8)
-      ]),
-      'name': new FormControl('', [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(20)
-      ]),
-      'amount': new FormControl('', [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(12)
-      ]),
+      'date': new FormControl(''),
+      'name': new FormControl(''),
+      'amount': new FormControl('')
     });
-
+    this.editFundForm = new FormGroup({
+      'name': new FormControl(this.fund.name),
+      'target': new FormControl(this.fund.target)
+    });
   }
 
   setFormControlRefs(): void {
+    this.addContributionAmountControl = this.addContributionForm.get('amount') as FormControl;
+    this.addContributionDateControl = this.addContributionForm.get('date') as FormControl;
+    this.addContributionNameControl = this.addContributionForm.get('name') as FormControl;
+    this.editFundNameControl = this.editFundForm.get('name') as FormControl;
     this.editFundTargetControl = this.editFundForm.get('target') as FormControl;
+  }
+
+  addFormValidation() {
+    this.addContributionFormValidation();
+    this.editFundFormValidation();
+  }
+
+  addContributionFormValidation():void {
+    this.addContributionAmountControl.setValidators([
+      Validators.required,
+      Validators.max(this.fund.target - this.fund.current),
+      Validators.minLength(1),
+      Validators.maxLength(12)
+    ]);
+    this.addContributionDateControl.setValidators([
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(8)
+    ]);
+    this.addContributionNameControl.setValidators([
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(20)
+    ]);
+    this.addContributionForm.updateValueAndValidity();
+  }
+
+  editFundFormValidation():void {
+    this.editFundNameControl.setValidators([
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(20)
+    ]);
+    this.editFundTargetControl.setValidators([
+      Validators.required,
+      Validators.minLength(1),
+      Validators.maxLength(12),
+      Validators.min(this.fund.current)
+    ]);
+    this.editFundForm.updateValueAndValidity();
   }
 
   onTabChange(index: number): void {
@@ -97,10 +123,8 @@ export class FdzFundComponent implements OnInit {
         this.editFundForm.value.target
       );
       this.editSuccessMessageVisible = true;
-      this.editFundForm.reset({
-        'name' : this.fund.name,
-        'target' : this.fund.target
-      });
+      this.editFundForm.reset({ 'name' : this.fund.name, 'target' : this.fund.target });
+      this.editFundFormValidation();
     }
   }
 
@@ -118,23 +142,13 @@ export class FdzFundComponent implements OnInit {
       });
       this.addContributionSuccessMessageVisible = true;
       this.addContributionForm.reset();
-      this.updateEditFormValidation();
+      this.addContributionFormValidation();
     }
   }
 
   onAddContributionSuccessButton(): void {
     this.addContributionSuccessMessageVisible = false;
     this.activeTabIndex = 0;
-  }
-
-  updateEditFormValidation() {
-    this.editFundTargetControl.setValidators([
-      Validators.required,
-      Validators.minLength(2),
-      Validators.maxLength(12),
-      Validators.min(this.fund.current)
-    ]);
-    this.editFundTargetControl.updateValueAndValidity();
   }
 
 }

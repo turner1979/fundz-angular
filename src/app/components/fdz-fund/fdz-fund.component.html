@@ -105,6 +105,9 @@
                   'valid' : addContributionForm.controls['amount'].valid && addContributionForm.controls['amount'].dirty }">
                   <input type="text" formControlName="amount" placeholder="Amount" maxlength="12" mask="separator.0" thousandSeparator="," />
                 </div>
+                <div class="fdz-fund__form-row" *ngIf="addContributionForm.controls['amount'].errors?.max">
+                  <fdz-message [options]="{ text: ['Max contribution amount must be £' + addContributionForm.controls['amount'].errors?.max?.max + ' or less'], type: 'error' }"></fdz-message>  
+                </div>
                 <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
               </ng-template>
 
