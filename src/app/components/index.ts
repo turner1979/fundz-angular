@@ -10,6 +10,7 @@ export { FdzFundsComponent } from './fdz-funds/fdz-funds.component';
 export { FdzHeaderComponent } from './fdz-header/fdz-header.component';
 export { FdzHomeComponent } from './fdz-home/fdz-home.component';
 export { FdzIconComponent } from './fdz-icon/fdz-icon.component';
+export { FdzLoadingComponent } from './fdz-loading/fdz-loading.component';
 export { FdzLogoComponent } from './fdz-logo/fdz-logo.component';
 export { FdzMessageComponent } from './fdz-message/fdz-message.component';
 export { FdzModalComponent } from './fdz-modal/fdz-modal.component';

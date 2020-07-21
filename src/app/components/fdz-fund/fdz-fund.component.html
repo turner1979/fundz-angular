@@ -9,10 +9,9 @@
 
     <ng-container *ngIf="fund$ | async as fund">
       <fdz-fund-card [fund]="fund" [showEdit]="false">
-
+        
         <ng-container *ngIf="loading; else loaded">
-          loading...
-          <!-- TODO: add loading component -->
+          <fdz-loading></fdz-loading>
         </ng-container>
         <ng-template #loaded>
           <fdz-fund-progress [fund]="fund"></fdz-fund-progress>

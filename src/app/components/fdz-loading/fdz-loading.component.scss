@@ -1,0 +1,17 @@
+@import "fdz-styles";
+
+.fdz-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  i {
+    color: #222;
+  }
+
+  p {
+    @include fdz-font(14);
+  }
+
+}
