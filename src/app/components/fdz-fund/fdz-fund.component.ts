@@ -102,7 +102,7 @@ export class FdzFundComponent implements OnInit {
       Validators.maxLength(12),
       Validators.min(this.fund.current)
     ]);
-    this.editFundForm.updateValueAndValidity();
+    this.addFormValidation();
   }
 
   onTabChange(index: number): void {
@@ -142,7 +142,7 @@ export class FdzFundComponent implements OnInit {
       });
       this.addContributionSuccessMessageVisible = true;
       this.addContributionForm.reset();
-      this.addContributionFormValidation();
+      this.addFormValidation();
     }
   }
 
