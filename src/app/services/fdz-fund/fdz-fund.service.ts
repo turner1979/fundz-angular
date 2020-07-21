@@ -39,26 +39,36 @@ export class FdzFundService {
     return of(funds.get(index));
   }
 
-  editFund(fund: FdzFund, name: string, target: number): void {
-    fund.name = name;
-    fund.target = target;
-    this.funds.subscribe((funds) => {
-      const allFunds = [];
-      funds.map(fund => allFunds.push(fund));
-      this.saveAllFundsDataToLocalStorage(allFunds);
+  editFund(fund: FdzFund, name: string, target: number): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      setTimeout(() => {
+        fund.name = name;
+        fund.target = target;
+        this.funds.subscribe((funds) => {
+          const allFunds = [];
+          funds.map(fund => allFunds.push(fund));
+          this.saveAllFundsDataToLocalStorage(allFunds);
+          resolve();
+        });
+      }, 500);
     });
   }
 
-  addContribution(fund: FdzFund, contribution: FdzFundContribution): void {
-    if (!fund.contributions) {
-      fund['contributions'] = [];
-    } 
-    fund.contributions.push(contribution);
-    fund.current = this.getContributionsTotalValue(fund);
-    this.funds.subscribe((funds) => {
-      const allFunds = [];
-      funds.map(fund => allFunds.push(fund));
-      this.saveAllFundsDataToLocalStorage(allFunds);
+  addContribution(fund: FdzFund, contribution: FdzFundContribution): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      setTimeout(() => {
+        if (!fund.contributions) {
+          fund['contributions'] = [];
+        } 
+        fund.contributions.push(contribution);
+        fund.current = this.getContributionsTotalValue(fund);
+        this.funds.subscribe((funds) => {
+          const allFunds = [];
+          funds.map(fund => allFunds.push(fund));
+          this.saveAllFundsDataToLocalStorage(allFunds);
+          resolve();
+        });
+      }, 500);
     });
   }
 

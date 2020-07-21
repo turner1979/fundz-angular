@@ -25,6 +25,7 @@ export class FdzFundComponent implements OnInit {
   fund$: Observable<FdzFund>;
   fund: FdzFund;
   id: string;
+  loading = false;
 
   constructor(
     private fundService: FdzFundService,
@@ -102,7 +103,7 @@ export class FdzFundComponent implements OnInit {
       Validators.maxLength(12),
       Validators.min(this.fund.current)
     ]);
-    this.addFormValidation();
+    this.editFundForm.updateValueAndValidity();
   }
 
   onTabChange(index: number): void {
@@ -117,14 +118,17 @@ export class FdzFundComponent implements OnInit {
 
   onEditFundSubmit(): void {
     if (this.editFundForm.valid) {
+      this.setLoadingState(true);
       this.fundService.editFund(
         this.fund, 
         this.editFundForm.value.name, 
         this.editFundForm.value.target
-      );
-      this.editSuccessMessageVisible = true;
-      this.editFundForm.reset({ 'name' : this.fund.name, 'target' : this.fund.target });
-      this.editFundFormValidation();
+      ).then(() => {
+        this.setLoadingState(false);
+        this.editSuccessMessageVisible = true;
+        this.editFundForm.reset({ 'name' : this.fund.name, 'target' : this.fund.target });
+        this.editFundFormValidation();
+      });
     }
   }
 
@@ -135,15 +139,24 @@ export class FdzFundComponent implements OnInit {
 
   onAddContributionSubmit(): void {
     if (this.addContributionForm.valid) {
+      this.setLoadingState(true);
       this.fundService.addContribution(this.fund, {
         amount: this.addContributionForm.value.amount,
         date: this.addContributionForm.value.date,
         name: this.addContributionForm.value.name
+      }).then(() => {
+        this.setLoadingState(false);
+        this.addContributionSuccessMessageVisible = true;
+        this.addContributionForm.reset();
+        this.addFormValidation();
       });
-      this.addContributionSuccessMessageVisible = true;
-      this.addContributionForm.reset();
-      this.addFormValidation();
     }
+  }
+
+  setLoadingState(state: boolean) {
+    setTimeout(() => {
+      this.loading = state;
+    });
   }
 
   onAddContributionSuccessButton(): void {
