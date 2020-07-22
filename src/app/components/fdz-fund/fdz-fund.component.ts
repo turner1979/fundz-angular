@@ -164,4 +164,10 @@ export class FdzFundComponent implements OnInit {
     this.activeTabIndex = 0;
   }
 
+  onDeleteFund(fund: FdzFund) {
+    this.fundService.deleteFund(fund).then(() => {
+      this.router.navigate(['/funds']);
+    });
+  }
+
 }

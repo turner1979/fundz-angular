@@ -8,7 +8,7 @@
     </div>
 
     <ng-container *ngIf="fund$ | async as fund">
-      <fdz-fund-card [fund]="fund" [showEdit]="false">
+      <fdz-fund-card [fund]="fund" [showEdit]="false" (deleteFund)="onDeleteFund($event)">
         
         <ng-container *ngIf="loading; else loaded">
           <fdz-loading></fdz-loading>
