@@ -13,8 +13,9 @@ export class FdzFundPillComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
-  
+
   get typeClass(): string {
     return this.options.text.toLowerCase().replace(' ', '-');
   }

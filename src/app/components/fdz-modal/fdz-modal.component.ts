@@ -16,7 +16,7 @@ export class FdzModalComponent implements OnInit {
 
   }
 
-  onCloseModal() {
+  onCloseModal(): void {
     this.closeModal.emit(true);
   }
 

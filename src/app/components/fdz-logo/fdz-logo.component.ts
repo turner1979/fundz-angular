@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FdzLogoComponent implements OnInit {
 
-  @Input() isHome = false;
+  @Input() alt = false;
 
   constructor() { }
 

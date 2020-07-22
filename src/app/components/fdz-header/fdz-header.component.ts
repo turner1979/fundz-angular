@@ -10,7 +10,7 @@ export class FdzHeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
 }

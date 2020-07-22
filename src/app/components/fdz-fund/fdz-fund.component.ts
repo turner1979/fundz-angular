@@ -3,7 +3,7 @@ import { FdzFundService } from '@fdz/services';
 import { FormGroup, FormControl , Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { FdzFund } from '@fdz/models';
+import { FdzFund, FzdTabs, FdzMessage, FdzButton } from '@fdz/models';
 
 @Component({
   selector: 'fdz-fund',
@@ -12,26 +12,37 @@ import { FdzFund } from '@fdz/models';
 })
 export class FdzFundComponent implements OnInit {
 
-  activeTabIndex = 0;
   addContributionForm: FormGroup;
   addContributionAmountControl: FormControl;
   addContributionDateControl: FormControl;
   addContributionNameControl: FormControl;
+  addContributionSuccessMessageOptions: FdzMessage = { text: ['Contribution added successfully'], type: 'success' };
   addContributionSuccessMessageVisible = false;
+  addContributionSubmitButtonOptions: FdzButton = { dark: true, text: 'ADD', type: 'submit' };
   editFundForm: FormGroup;
   editFundNameControl: FormControl;
   editFundTargetControl: FormControl;
-  editSuccessMessageVisible = false;
+  editFundSuccessMessageOptions: FdzMessage = { text: ['Fund details edited successfully'], type: 'success' };
+  editFundSuccessMessageVisible = false;
+  editSubmitButtonOptions: FdzButton = { dark: true, text: 'EDIT', type: 'submit' };
   fund$: Observable<FdzFund>;
   fund: FdzFund;
   id: string;
   loading = false;
+  tabOptions: FzdTabs = {
+    activeIndex: 0,
+    tabs: [
+      { iconClass: 'fas fa-info-circle', name: 'Overview' },
+      { iconClass: 'fas fa-pencil-alt', name: 'Edit' },
+      { iconClass: 'fas fa-coins', name: 'Add Contribution' }
+    ]
+  };
 
   constructor(
     private fundService: FdzFundService,
     private route: ActivatedRoute,
     private router: Router
-  ) { 
+  ) {
 
   }
 
@@ -48,13 +59,13 @@ export class FdzFundComponent implements OnInit {
 
   setupForms(): void {
     this.addContributionForm = new FormGroup({
-      'date': new FormControl(''),
-      'name': new FormControl(''),
-      'amount': new FormControl('')
+      date: new FormControl(''),
+      name: new FormControl(''),
+      amount: new FormControl('')
     });
     this.editFundForm = new FormGroup({
-      'name': new FormControl(this.fund.name),
-      'target': new FormControl(this.fund.target)
+      name: new FormControl(this.fund.name),
+      target: new FormControl(this.fund.target)
     });
   }
 
@@ -66,12 +77,12 @@ export class FdzFundComponent implements OnInit {
     this.editFundTargetControl = this.editFundForm.get('target') as FormControl;
   }
 
-  addFormValidation() {
+  addFormValidation(): void {
     this.addContributionFormValidation();
     this.editFundFormValidation();
   }
 
-  addContributionFormValidation():void {
+  addContributionFormValidation(): void {
     this.addContributionAmountControl.setValidators([
       Validators.required,
       Validators.max(this.fund.target - this.fund.current),
@@ -91,7 +102,7 @@ export class FdzFundComponent implements OnInit {
     this.addContributionForm.updateValueAndValidity();
   }
 
-  editFundFormValidation():void {
+  editFundFormValidation(): void {
     this.editFundNameControl.setValidators([
       Validators.required,
       Validators.minLength(2),
@@ -107,8 +118,8 @@ export class FdzFundComponent implements OnInit {
   }
 
   onTabChange(index: number): void {
-    this.activeTabIndex = index;
-    this.editSuccessMessageVisible = false;
+    this.tabOptions.activeIndex = index;
+    this.editFundSuccessMessageVisible = false;
     this.addContributionSuccessMessageVisible = false;
   }
 
@@ -120,20 +131,22 @@ export class FdzFundComponent implements OnInit {
     if (this.editFundForm.valid) {
       this.setLoadingState(true);
       this.fundService.editFund(
-        this.fund, 
-        this.editFundForm.value.name, 
+        this.fund,
+        this.editFundForm.value.name,
         this.editFundForm.value.target
       ).then(() => {
         this.setLoadingState(false);
-        this.editSuccessMessageVisible = true;
-        this.editFundForm.reset({ 'name' : this.fund.name, 'target' : this.fund.target });
+        this.editFundSuccessMessageVisible = true;
+        this.editFundForm.reset({ name : this.fund.name, target : this.fund.target });
         this.addFormValidation();
+      }).catch(() => {
+        // Real world example would display error message in UI
       });
     }
   }
 
   onEditFundSuccessButton(): void {
-    this.editSuccessMessageVisible = false;
+    this.editFundSuccessMessageVisible = false;
   }
 
   onAddContributionSubmit(): void {
@@ -148,11 +161,13 @@ export class FdzFundComponent implements OnInit {
         this.addContributionSuccessMessageVisible = true;
         this.addContributionForm.reset();
         this.addFormValidation();
+      }).catch(() => {
+        // Real world example would display error message in UI
       });
     }
   }
 
-  setLoadingState(state: boolean) {
+  setLoadingState(state: boolean): void {
     setTimeout(() => {
       this.loading = state;
     });
@@ -162,7 +177,7 @@ export class FdzFundComponent implements OnInit {
     this.addContributionSuccessMessageVisible = false;
   }
 
-  onDeleteFund(fund: FdzFund) {
+  onDeleteFund(fund: FdzFund): void {
     this.fundService.deleteFund(fund).then(() => {
       this.router.navigate(['/funds']);
     });

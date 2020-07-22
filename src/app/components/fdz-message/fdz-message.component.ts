@@ -8,7 +8,7 @@ import { FdzMessage } from '@fdz/models';
 })
 export class FdzMessageComponent implements OnInit {
 
-  @Input() options: FdzMessage;Í
+  @Input() options: FdzMessage;
 
   constructor() { }
 

@@ -17,7 +17,7 @@ export class FdzTabsComponent implements OnInit {
 
   }
 
-  onTabClick(index: number) {
+  onTabClick(index: number): void {
     this.options.activeIndex = index;
     this.tabChange.emit(index);
   }

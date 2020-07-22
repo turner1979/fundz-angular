@@ -12,30 +12,30 @@ enum LsKeys {
 })
 export class FdzFundService {
 
-  private _funds: BehaviorSubject<List<FdzFund>> = new BehaviorSubject(List([]));
-  
+  private funds: BehaviorSubject<List<FdzFund>> = new BehaviorSubject(List([]));
+
   constructor() {
     this.loadInitialData();
   }
 
-  get funds(): Observable<List<FdzFund>> {
-    return this._funds.asObservable();
+  get funds$(): Observable<List<FdzFund>> {
+    return this.funds.asObservable();
   }
 
   loadInitialData(): void {
-    this._funds.next(List(
+    this.funds.next(List(
       this.getFundsDataFromLocalStorage()
     ));
   }
 
   addFund(newFund: FdzFund): void {
     this.saveFundsDataToLocalStorage(newFund);
-    this._funds.next(this._funds.getValue().push(newFund));
+    this.funds.next(this.funds.getValue().push(newFund));
   }
 
   getFund(id: string): Observable<FdzFund> {
-    const funds = this._funds.getValue();
-    let index = funds.findIndex((fund: FdzFund) => fund.id === id);
+    const funds = this.funds.getValue();
+    const index = funds.findIndex((fund: FdzFund) => fund.id === id);
     return of(funds.get(index));
   }
 
@@ -46,7 +46,7 @@ export class FdzFundService {
         fund.target = target;
         this.funds.subscribe((funds) => {
           const allFunds = [];
-          funds.map(fund => allFunds.push(fund));
+          funds.map(f => allFunds.push(f));
           this.saveAllFundsDataToLocalStorage(allFunds);
           resolve();
         });
@@ -58,17 +58,17 @@ export class FdzFundService {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // First remove the fund from the behaviour subject list
-        let funds = this._funds.getValue();
+        let funds = this.funds.getValue();
         let index = 0;
         funds.map((f, i) => { if (f === fund) { index = i; }});
         funds = funds.delete(index);
-        
+
         // Next update the funds in local storage
         const allFunds = [];
         funds.map((f) => { allFunds.push(f); });
         this.saveAllFundsDataToLocalStorage(allFunds);
 
-        this._funds.next(funds);
+        this.funds.next(funds);
         resolve();
       }, 500);
     });
@@ -78,13 +78,13 @@ export class FdzFundService {
     return new Promise<void>((resolve, reject) => {
       setTimeout(() => {
         if (!fund.contributions) {
-          fund['contributions'] = [];
-        } 
+          fund.contributions = [];
+        }
         fund.contributions.push(contribution);
         fund.current = this.getContributionsTotalValue(fund);
         this.funds.subscribe((funds) => {
           const allFunds = [];
-          funds.map(fund => allFunds.push(fund));
+          funds.map(f => allFunds.push(f));
           this.saveAllFundsDataToLocalStorage(allFunds);
           resolve();
         });
@@ -95,8 +95,8 @@ export class FdzFundService {
   getFundsDataFromLocalStorage(): Array<FdzFund> {
     const funds = [];
     if (localStorage.getItem(LsKeys.Funds) !== null) {
-      JSON.parse(localStorage.getItem(LsKeys.Funds)).map((fund) => { 
-        funds.push(fund); 
+      JSON.parse(localStorage.getItem(LsKeys.Funds)).map((fund) => {
+        funds.push(fund);
       });
     }
     return funds;
@@ -105,14 +105,14 @@ export class FdzFundService {
   saveFundsDataToLocalStorage(newFund: FdzFund): void {
     const allFunds = this.getFundsDataFromLocalStorage();
     allFunds.push(newFund);
-    localStorage.setItem(LsKeys.Funds,JSON.stringify(allFunds));
+    localStorage.setItem(LsKeys.Funds, JSON.stringify(allFunds));
   }
 
   saveAllFundsDataToLocalStorage(funds: FdzFund[]): void {
-    localStorage.setItem(LsKeys.Funds,JSON.stringify(funds));
+    localStorage.setItem(LsKeys.Funds, JSON.stringify(funds));
   }
 
-  getContributionsTotalValue(fund: FdzFund):number {
+  getContributionsTotalValue(fund: FdzFund): number {
     let totalContributions = 0;
     if (typeof fund.contributions !== 'undefined') {
       fund.contributions.map((contribution) => {

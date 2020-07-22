@@ -62,7 +62,7 @@ $tableBorderColour: #efefef;
       tr {
         background: lighten($tableBorderColour, 10%);
         td {
-          @include fdz-font(12);
+          @include fdz-font(14);
           padding: 8px;
           &:nth-child(1) {
             width: 25%;

@@ -13,7 +13,7 @@ export class FdzButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
 }

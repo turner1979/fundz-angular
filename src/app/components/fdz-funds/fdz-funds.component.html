@@ -2,7 +2,7 @@
 
   <fdz-header></fdz-header>
   <fdz-content-container>
-  
+
     <div class="fdz-funds__controls">
       <fdz-icon [iconClass]="'fas fa-chevron-left'" (click)="onBackClick()"></fdz-icon>
       <fdz-icon [iconClass]="'fas fa-plus'" (click)="setAddFundModalVisibility(true)"></fdz-icon>
@@ -12,14 +12,14 @@
       <fdz-add-fund-form *ngIf="addFundModalVisible" (newFundAdd)="setAddFundModalVisibility(false)"></fdz-add-fund-form>
     </fdz-modal>
 
-    <ng-container *ngIf="fundService.funds | async as funds">
+    <ng-container *ngIf="fundService.funds$ | async as funds">
       <ng-container *ngIf="loading; else loaded">
         <fdz-loading></fdz-loading>
       </ng-container>
       <ng-template #loaded>
         <div class="fdz-funds__grid">
           <fdz-fund-card
-            *ngFor="let fund of funds" 
+            *ngFor="let fund of funds"
             [fund]="fund"
             (editFund)="onEditFund($event)"
             (deleteFund)="onDeleteFund($event)">

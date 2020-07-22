@@ -19,11 +19,11 @@ export class FdzFundCardComponent implements OnInit {
 
   }
 
-  onEditFund() {
+  onEditFund(): void {
     this.editFund.emit(this.fund);
   }
 
-  onDeleteFund() {
+  onDeleteFund(): void {
     this.deleteFund.emit(this.fund);
   }
 

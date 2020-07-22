@@ -20,10 +20,10 @@ export class FdzFooterComponent implements OnInit {
     this.version = VERSION;
   }
 
-  get textStyle() {
+  get textStyle(): any {
     return {
-      'color' : this.colour
-    }
-  } 
+      color : this.colour
+    };
+  }
 
 }

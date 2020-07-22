@@ -20,7 +20,7 @@ export class FdzFundProgressComponent implements OnInit {
 
   get barStyles(): any {
     return {
-      'width' : this.percentage + '%'
+      width : this.percentage + '%'
     };
   }
 
@@ -29,8 +29,8 @@ export class FdzFundProgressComponent implements OnInit {
   }
 
   get pillOptions(): FdzFundPill {
-    return { 
-      text: (this.percentage === 100 ?  'Complete' : ((this.percentage > 0) ? 'In Progress' : 'Started')) 
+    return {
+      text: (this.percentage === 100 ?  'Complete' : ((this.percentage > 0) ? 'In Progress' : 'Started'))
     };
   }
 

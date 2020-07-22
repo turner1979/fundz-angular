@@ -13,7 +13,7 @@ export class FdzFundsComponent implements OnInit {
   addFundModalVisible = false;
   loading = false;
 
-  constructor (
+  constructor(
     public fundService: FdzFundService,
     private router: Router
   ) {
@@ -24,26 +24,28 @@ export class FdzFundsComponent implements OnInit {
 
   }
 
-  setAddFundModalVisibility(state: boolean) {
+  setAddFundModalVisibility(state: boolean): void {
     this.addFundModalVisible = state;
   }
 
-  onBackClick() {
+  onBackClick(): void {
     this.router.url === '/funds' ? this.router.navigate(['/']) : this.router.navigate(['/funds']);
   }
 
-  onEditFund(fund: FdzFund) {
+  onEditFund(fund: FdzFund): void {
     this.router.navigate(['fund', fund.id]);
   }
 
-  onDeleteFund(fund: FdzFund) {
+  onDeleteFund(fund: FdzFund): void {
     this.setLoadingState(true);
     this.fundService.deleteFund(fund).then(() => {
       this.setLoadingState(false);
+    }).catch(() => {
+      // Real world example would display error message in UI
     });
   }
 
-  setLoadingState(state: boolean) {
+  setLoadingState(state: boolean): void {
     setTimeout(() => {
       this.loading = state;
     });

@@ -16,7 +16,7 @@
         'valid' : newFundForm.controls['fundTarget'].valid }">
         <input type="text" name="fundTarget" formControlName="fundTarget" placeholder="Target" maxlength="12" mask="separator.0" thousandSeparator="," />
     </div>
-    <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
+    <fdz-button [options]="submitButtonOptions"></fdz-button>
   </form>
 
 </div>
