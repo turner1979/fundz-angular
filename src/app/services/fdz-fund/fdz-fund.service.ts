@@ -28,9 +28,14 @@ export class FdzFundService {
     ));
   }
 
-  addFund(newFund: FdzFund): void {
-    this.saveFundsDataToLocalStorage(newFund);
-    this.funds.next(this.funds.getValue().push(newFund));
+  addFund(newFund: FdzFund): Promise<void> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.saveFundsDataToLocalStorage(newFund);
+        this.funds.next(this.funds.getValue().push(newFund));
+        resolve();
+      }, 500);
+    });
   }
 
   getFund(id: string): Observable<FdzFund> {

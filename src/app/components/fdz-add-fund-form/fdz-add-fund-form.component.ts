@@ -39,12 +39,16 @@ export class FdzAddFundFormComponent implements OnInit {
   onSubmit(): void {
     if (this.newFundForm.valid) {
       this.fundService.addFund({
-        id: [...Array(10)].map(i => (~~(Math.random() * 36)).toString(36)).join(''),
+        id: Math.random().toString(36).substr(2),
         current: 0,
         name: this.newFundForm.value.fundName,
         target: this.newFundForm.value.fundTarget
+      }).then(() => {
+        this.newFundAdd.emit(true);
+      }).catch(() => {
+        // Real world example would display error message in UI
       });
-      this.newFundAdd.emit(true);
+
     }
   }
 
