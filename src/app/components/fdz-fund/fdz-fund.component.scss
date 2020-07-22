@@ -24,6 +24,21 @@ $tableBorderColour: #efefef;
     @include fdz-font(14);
   }
 
+  a {
+    @include fdz-font(14);
+    text-decoration: underline;
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  fdz-message + a {
+    margin-top: 16px;
+  }
+
   table {
     width: 100%;
     text-align: left;

@@ -55,12 +55,12 @@
         </ng-container>
         <ng-container *ngIf="activeTabIndex === 1">
 
-          <form class="fdz-fund__form" [formGroup]="editFundForm" (ngSubmit)="onEditFundSubmit()">
-            <ng-container *ngIf="editSuccessMessageVisible; else showEditForm">
-              <fdz-message [options]="{ text: ['Fund details edited successfully'], type: 'success' }"></fdz-message>
-              <fdz-button [options]="{ dark: true, text: 'ok', type: 'button' }" (click)="onEditFundSuccessButton()"></fdz-button>
-            </ng-container>
-            <ng-template #showEditForm>    
+          <ng-container *ngIf="editSuccessMessageVisible; else showEditForm">
+            <fdz-message [options]="{ text: ['Fund details edited successfully'], type: 'success' }"></fdz-message>
+            <a (click)="onEditFundSuccessButton()">Back To Form</a>
+          </ng-container>
+          <ng-template #showEditForm>
+            <form class="fdz-fund__form" [formGroup]="editFundForm" (ngSubmit)="onEditFundSubmit()">
               <p><strong>Edit Fund</strong></p>        
               <div class="fdz-fund__form-row" [ngClass]="{ 
                 'invalid' : editFundForm.controls['name'].invalid && editFundForm.controls['name'].dirty,
@@ -76,24 +76,23 @@
                 <fdz-message [options]="{ text: ['Target must be greater or equal to fund contributions of £' + editFundForm.controls['target'].errors?.min?.min], type: 'error' }"></fdz-message>  
               </div>
               <fdz-button [options]="{ dark: true, text: 'Edit', type: 'submit' }"></fdz-button>
-            </ng-template>
-          </form>
+            </form>
+          </ng-template>   
 
         </ng-container>
         <ng-container *ngIf="activeTabIndex === 2">
 
-          <form class="fdz-fund__form" [formGroup]="addContributionForm" (ngSubmit)="onAddContributionSubmit()">
+          <ng-container *ngIf="addContributionSuccessMessageVisible; else addContributions">
+            <fdz-message [options]="{ text: ['Contribution added successfully'], type: 'success' }"></fdz-message>
+            <a (click)="onAddContributionSuccessButton()">Back To Form</a>
+          </ng-container>
+          <ng-template #addContributions>
             
-            <ng-container *ngIf="addContributionSuccessMessageVisible; else addContributions">
-              <fdz-message [options]="{ text: ['Contribution added successfully'], type: 'success' }"></fdz-message>
-              <fdz-button [options]="{ dark: true, text: 'ok', type: 'button' }" (click)="onAddContributionSuccessButton()"></fdz-button>
+            <ng-container *ngIf="fund.current >= fund.target; else showAddContributionForm">
+              <fdz-message [options]="{ text: ['Fund target of £' + fund.target +' has been reached'], type: 'success' }"></fdz-message>
             </ng-container>
-            <ng-template #addContributions>
-
-              <ng-container *ngIf="fund.current >= fund.target; else showAddContributionForm">
-                <fdz-message [options]="{ text: ['Fund target of £' + fund.target +' has been reached'], type: 'success' }"></fdz-message>
-              </ng-container>
-              <ng-template #showAddContributionForm>
+            <ng-template #showAddContributionForm>
+              <form class="fdz-fund__form" [formGroup]="addContributionForm" (ngSubmit)="onAddContributionSubmit()">
                 <p><strong>Add Contribution</strong></p>
                 <div class="fdz-fund__form-row" [ngClass]="{ 
                   'invalid' : addContributionForm.controls['date'].invalid && addContributionForm.controls['date'].dirty,
@@ -114,12 +113,12 @@
                   <fdz-message [options]="{ text: ['Max contribution amount must be £' + addContributionForm.controls['amount'].errors?.max?.max + ' or less'], type: 'error' }"></fdz-message>  
                 </div>
                 <fdz-button [options]="{ dark: true, text: 'Add', type: 'submit' }"></fdz-button>
-              </ng-template>
-
+              </form>
             </ng-template>
-          </form>
-        </ng-container>
 
+          </ng-template>
+        </ng-container>
+        
       </fdz-tabs>
 
       </fdz-fund-card>

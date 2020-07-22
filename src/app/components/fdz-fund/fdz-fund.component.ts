@@ -127,14 +127,13 @@ export class FdzFundComponent implements OnInit {
         this.setLoadingState(false);
         this.editSuccessMessageVisible = true;
         this.editFundForm.reset({ 'name' : this.fund.name, 'target' : this.fund.target });
-        this.editFundFormValidation();
+        this.addFormValidation();
       });
     }
   }
 
   onEditFundSuccessButton(): void {
     this.editSuccessMessageVisible = false;
-    this.activeTabIndex = 0;
   }
 
   onAddContributionSubmit(): void {
@@ -161,7 +160,6 @@ export class FdzFundComponent implements OnInit {
 
   onAddContributionSuccessButton(): void {
     this.addContributionSuccessMessageVisible = false;
-    this.activeTabIndex = 0;
   }
 
   onDeleteFund(fund: FdzFund) {
