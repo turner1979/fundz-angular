@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FdzFund } from '@fdz/models';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'fdz-fund-card',
@@ -11,15 +10,21 @@ export class FdzFundCardComponent implements OnInit {
 
   @Input() fund: FdzFund;
   @Input() showEdit = true;
+  @Output() editFund = new EventEmitter<FdzFund>();
+  @Output() deleteFund = new EventEmitter<FdzFund>();
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
 
   }
 
-  onFundClick() {
-    this.router.navigate(['fund',this.fund.id]);
+  onEditFund() {
+    this.editFund.emit(this.fund);
+  }
+
+  onDeleteFund() {
+    this.deleteFund.emit(this.fund);
   }
 
 }

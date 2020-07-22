@@ -54,6 +54,26 @@ export class FdzFundService {
     });
   }
 
+  deleteFund(fund: FdzFund): Promise<void> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // First remove the fund from the behaviour subject list
+        let funds = this._funds.getValue();
+        let index = 0;
+        funds.map((f, i) => { if (f === fund) { index = i; }});
+        funds = funds.delete(index);
+        
+        // Next update the funds in local storage
+        const allFunds = [];
+        funds.map((f) => { allFunds.push(f); });
+        this.saveAllFundsDataToLocalStorage(allFunds);
+
+        this._funds.next(funds);
+        resolve();
+      }, 500);
+    });
+  }
+
   addContribution(fund: FdzFund, contribution: FdzFundContribution): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       setTimeout(() => {

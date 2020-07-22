@@ -12,13 +12,23 @@
       <fdz-add-fund-form *ngIf="addFundModalVisible" (newFundAdd)="setAddFundModalVisibility(false)"></fdz-add-fund-form>
     </fdz-modal>
 
-    <div class="fdz-funds__grid" *ngIf="fundService.funds | async as funds">
-      <fdz-fund-card
-        *ngFor="let fund of funds" 
-        [fund]="fund">
-        <fdz-fund-progress [fund]="fund"></fdz-fund-progress>
-      </fdz-fund-card>
-    </div>
+    <ng-container *ngIf="fundService.funds | async as funds">
+      <ng-container *ngIf="loading; else loaded">
+        <fdz-loading></fdz-loading>
+      </ng-container>
+      <ng-template #loaded>
+        <div class="fdz-funds__grid">
+          <fdz-fund-card
+            *ngFor="let fund of funds" 
+            [fund]="fund"
+            (editFund)="onEditFund($event)"
+            (deleteFund)="onDeleteFund($event)">
+            <fdz-fund-progress [fund]="fund"></fdz-fund-progress>
+          </fdz-fund-card>
+        </div>
+      </ng-template>
+
+    </ng-container>
 
     <fdz-footer></fdz-footer>
 

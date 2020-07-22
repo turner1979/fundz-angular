@@ -39,26 +39,37 @@
     padding: 16px;
   }
 
-  .fdz-fund-card__edit {
-    cursor: pointer;
-    width: 48px;
-    height: 48px;
-    border: 1px solid #ffffff;
-    border-radius: 100%;
+  .fdz-fund-card__actions {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    i {
-      color: #fff;
-    }
-
-    &:hover {
-      border: 1px solid #222;
+    .fdz-fund-card__action {
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #ffffff;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
       i {
-        color: #222;
+        color: #fff;
+      }
+  
+      &:hover {
+        border: 1px solid #222;
+        i {
+          color: #222;
+        }
+      }
+
+      + .fdz-fund-card__action {
+        margin-left: 8px;
       }
     }
+
   }
 
 }
