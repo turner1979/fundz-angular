@@ -1,6 +1,6 @@
 # Fundz App - Angular
 
-Fundz is a [demo app](http://www.scottturner.co.uk/examples/funds/funds-angular) which allows users to create one or more
+Fundz is a [demo app](http://www.scottturner.co.uk/examples/fundz/fundz-angular) which allows users to create one or more
 funding targets to track their progress towards them.
 
 Users can perform the following tasks:
