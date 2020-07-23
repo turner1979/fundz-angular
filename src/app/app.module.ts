@@ -25,7 +25,8 @@ import {
   FdzLogoComponent,
   FdzMessageComponent,
   FdzModalComponent,
-  FdzTabsComponent
+  FdzTabsComponent,
+  FdzVersionComponent
 } from '@fdz/components';
 
 import {
@@ -53,7 +54,8 @@ import {
     FdzLogoComponent,
     FdzModalComponent,
     FdzMessageComponent,
-    FdzTabsComponent
+    FdzTabsComponent,
+    FdzVersionComponent
   ],
   imports: [
     AppRoutingModule,

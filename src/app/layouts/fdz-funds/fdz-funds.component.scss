@@ -3,6 +3,10 @@
 .fdz-funds {
   height: 100%;
 
+  fdz-version + .fdz-funds__controls {
+    margin-top: 16px;
+  }
+
   .fdz-funds__controls {
     display: flex;
     justify-content: space-between;
@@ -18,13 +22,13 @@
 
   @include breakpoint('small') {
     .fdz-funds__grid {
-      grid-template-columns: repeat(2, 1fr);  
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @include breakpoint('medium-large') {
     .fdz-funds__grid {
-      grid-template-columns: repeat(3, 1fr);  
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 

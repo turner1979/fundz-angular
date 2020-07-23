@@ -12,3 +12,4 @@ export { FdzLogoComponent } from './fdz-logo/fdz-logo.component';
 export { FdzMessageComponent } from './fdz-message/fdz-message.component';
 export { FdzModalComponent } from './fdz-modal/fdz-modal.component';
 export { FdzTabsComponent } from './fdz-tabs/fdz-tabs.component';
+export { FdzVersionComponent } from './fdz-version/fdz-version.component';
