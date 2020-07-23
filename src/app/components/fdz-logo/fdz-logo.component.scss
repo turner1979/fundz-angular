@@ -6,19 +6,19 @@
   align-items: center;
 
   h1 {
-    @include fdz-font(16, #222, 600);
+    @include fdz-font(16, $colourMineShaft, 600);
     margin: 0;
 
-    span {  
-      border-bottom: 2px solid #222;
+    span {
+      border-bottom: 2px solid $colourMineShaft;
     }
   }
 
   &.fdz-logo--alt {
     h1 {
-      @include fdz-font(32, #fff, 600);
+      @include fdz-font(32, $colourMineShaft, 600);
       span {
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid $colourMineShaft;
       }
     }
   }

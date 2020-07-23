@@ -18,6 +18,7 @@
     ],
     "paths" : {
       "@fdz/components": ["src/app/components"],
+      "@fdz/config": ["src/app/config"],
       "@fdz/layouts": ["src/app/layouts"],
       "@fdz/models": ["src/app/models"],
       "@fdz/services": ["src/app/services"]
