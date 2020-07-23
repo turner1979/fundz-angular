@@ -1,6 +1,7 @@
-# Fundz App - Angular 
+# Fundz App - Angular
 
-Fundz is a demo app which allows users to create one or more funding targets to track their progress towards them.
+Fundz is a [demo app](http://www.scottturner.co.uk/examples/funds/funds-angular) which allows users to create one or more
+funding targets to track their progress towards them.
 
 Users can perform the following tasks:
 
@@ -11,14 +12,15 @@ Users can perform the following tasks:
 - Delete fund
 - Change colour assigned to fund
 
-Data is not persisted with a backend database, it's saved on local storage for simplicity of demonstration.
+Data is not persisted with a backend database, it's saved on local storage for simplicity of demo.
 
 ## Notes
 
 The app demonstrates the use of the following:
 
-- Creating Components
-- Creating Services
+- Creating components
+- Creating services
+- Creating custom input components
 - Routing
 - Using models ( Typescript interfaces )
 - Using Observables ( with RxJs )
@@ -41,7 +43,3 @@ The app demonstrates the use of the following:
 ## Running the App Locally
 
 After cloning the repo run `ng serve` from the cmd line and open `http://localhost:4200/` in your browser.
-
-## Hosted Versions
-
-- Coming soon
