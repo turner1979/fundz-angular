@@ -141,7 +141,7 @@ export class FdzFundComponent implements OnInit {
       ).then(() => {
         this.setLoadingState(false);
         this.editFundSuccessMessageVisible = true;
-        this.editFundForm.reset({ name : this.fund.name, target : this.fund.target });
+        this.editFundForm.reset({ colour: this.fund.colour, name : this.fund.name, target : this.fund.target });
         this.addFormValidation();
       }).catch(() => {
         // Real world example would display error message in UI
