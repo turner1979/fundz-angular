@@ -1,7 +1,7 @@
 @import "fdz-styles";
 
-$formInputColour: #efefef;
-$tableBorderColour: #efefef;
+$formInputColour: $colourGallery;
+$tableBorderColour: $colourGallery;
 
 .fdz-fund {
   height: 100%;
@@ -45,11 +45,11 @@ $tableBorderColour: #efefef;
     border: 1px solid darken($tableBorderColour, 10%);
 
     thead {
-      background: #777;
-      border: 1px solid #777;
+      background: $colourBoulder;
+      border: 1px solid $colourBoulder;
       tr {
         th {
-          @include fdz-font(14, #fff, 600);
+          @include fdz-font(14, $colourWhite, 600);
           padding: 8px;
           &:nth-child(3) {
             text-align: right;
@@ -80,7 +80,7 @@ $tableBorderColour: #efefef;
           background: $tableBorderColour;
         }
       }
-      
+
     }
   }
 
@@ -101,5 +101,5 @@ $tableBorderColour: #efefef;
       }
     }
   }
-  
+
 }

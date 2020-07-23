@@ -1,8 +1,8 @@
 @import "fdz-styles";
 
-$base: #faf5b2;
-$inProgress: #baf4ff;
-$complete: #cfffb6;
+$base: $colourAstra;
+$inProgress: $colourFrenchPass;
+$complete: $colourReef;
 
 .fdz-fund-pill {
   @include pillStyle();

@@ -1,8 +1,8 @@
 @import "fdz-styles";
 
-$error: #ffe2d1;
-$info: #baf4ff;
-$success: #cfffb6;
+$error: $colourWatusi;
+$info: $colourFrenchPass;
+$success: $colourReef;
 
 .fdz-message {
   @include messageStyle();

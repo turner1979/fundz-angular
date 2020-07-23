@@ -1,6 +1,6 @@
 @import "fdz-styles";
 
-$taBg: #efefef;
+$taBg: $colourGallery;
 $tabRadius: 4px;
 
 .fdz-tabs {
@@ -27,8 +27,8 @@ $tabRadius: 4px;
       }
 
       &.fdz-tabs__tabs-tab--active {
-        background: #fff;
-        border-bottom: 1px solid #fff;
+        background: $colourWhite;
+        border-bottom: 1px solid $colourWhite;
       }
 
       &:first-child {

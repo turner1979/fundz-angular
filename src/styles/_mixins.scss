@@ -2,7 +2,7 @@
   @return #{$pixels/$context}rem;
 }
 
-@mixin fdz-font($fontSize:16, $fontColour: #222, $fontWeight: 300){
+@mixin fdz-font($fontSize:16, $fontColour: $colourMineShaft, $fontWeight: 300){
   font-family: "Montserrat", arial;
   font-size: #{$fontSize}px;
   font-size: pxToRem($fontSize);
@@ -11,7 +11,7 @@
   letter-spacing: 1px;
 }
 
-@mixin messageStyle($colour: #efefef) {
+@mixin messageStyle($colour: $colourGallery) {
   background: $colour;
   padding: 16px;
   border-radius: 4px;
@@ -23,7 +23,7 @@
       margin-top: 16px;
     }
   }
-} 
+}
 
 @mixin pillStyle($colour: $base) {
   background: $colour;
@@ -34,7 +34,7 @@
     @include fdz-font(14, darken($colour, 75%));
     margin: 0;
   }
-} 
+}
 
 @mixin breakpoint($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
@@ -48,7 +48,7 @@
   input[type=text] {
     width: 100%;
     border: none;
-    background: #efefef;
+    background: $colourGallery;
     border-radius: 4px;
     height: 48px;
     padding: 4px 16px 0;
@@ -62,13 +62,13 @@
 
   &.invalid {
     input[type=text] {
-      background: #ffe2d1;
+      background: $colourWatusi;
     }
   }
 
   &.valid {
     input[type=text] {
-      background: #cfffb6;
+      background: $colourReef;
     }
   }
 }

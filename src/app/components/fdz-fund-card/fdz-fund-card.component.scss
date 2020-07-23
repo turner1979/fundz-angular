@@ -1,12 +1,12 @@
 @import "fdz-styles";
 
 .fdz-fund-card {
-  background: #fff;
+  background: $colourWhite;
   border-radius: 8px;
   box-shadow: 0px 15px 36px -13px rgba(0,0,0,0.29);
 
   p {
-    @include fdz-font(14, #fff);
+    @include fdz-font(14, $colourWhite);
     margin: 0;
   }
 
@@ -24,7 +24,7 @@
     }
 
     p:nth-child(2) {
-      @include fdz-font(20, #fff);
+      @include fdz-font(20, $colourWhite);
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -48,20 +48,20 @@
       cursor: pointer;
       width: 36px;
       height: 36px;
-      border: 1px solid #ffffff;
+      border: 1px solid $colourWhite;
       border-radius: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-  
+
       i {
-        color: #fff;
+        color: $colourWhite;
       }
-  
+
       &:hover {
-        border: 1px solid #222;
+        border: 1px solid $colourMineShaft;
         i {
-          color: #222;
+          color: $colourMineShaft;
         }
       }
 
