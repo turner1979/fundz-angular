@@ -20,6 +20,7 @@ export class FdzFundProgressComponent implements OnInit {
 
   get barStyles(): any {
     return {
+      background: this.fund.colour.colour,
       width : this.percentage + '%'
     };
   }
