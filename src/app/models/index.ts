@@ -1,4 +1,5 @@
 export { FdzButton } from './fdz-button.model';
+export { FdzColour } from './fdz-colour.model';
 export { FdzFund, FdzFundContribution } from './fdz-fund.model';
 export { FdzMessage } from './fdz-message.model';
 export { FdzFundPill } from './fdz-fund-pill.model';

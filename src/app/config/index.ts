@@ -1,1 +1,1 @@
-export { COLOURS } from './colours';
+export { FDZ_COLOURS } from './fdz-colours';

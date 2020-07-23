@@ -1,0 +1,21 @@
+<div class="fdz-input-colour">
+
+  <ng-container *ngFor="let option of options">
+
+    <div
+      class="fdz-input-colour__option"
+      [ngStyle]="{ background: option?.colour }"
+      (click)="onSelectOption(option);">
+      <i *ngIf="option?.name === value?.name" class="fas fa-check"></i>
+    </div>
+
+    <input
+      [id]="option?.name"
+      type="radio"
+      [value]="value"
+      [name]="name"
+      [attr.checked]="option?.name === value?.name ? true : null" />
+
+  </ng-container>
+
+</div>

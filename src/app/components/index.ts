@@ -7,6 +7,7 @@ export { FdzFundPillComponent } from './fdz-fund-pill/fdz-fund-pill.component';
 export { FdzFundProgressComponent } from './fdz-fund-progress/fdz-fund-progress.component';
 export { FdzHeaderComponent } from './fdz-header/fdz-header.component';
 export { FdzIconComponent } from './fdz-icon/fdz-icon.component';
+export { FdzInputColourComponent } from './fdz-input-colour/fdz-input-colour.component';
 export { FdzLoadingComponent } from './fdz-loading/fdz-loading.component';
 export { FdzLogoComponent } from './fdz-logo/fdz-logo.component';
 export { FdzMessageComponent } from './fdz-message/fdz-message.component';

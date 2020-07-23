@@ -29,7 +29,7 @@ export class FdzFundCardComponent implements OnInit {
 
   get cardColour(): any {
     return {
-      background: this.fund.colour
+      background: this.fund.colour.colour
     };
   }
 
