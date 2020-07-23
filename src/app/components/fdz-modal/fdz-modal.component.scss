@@ -29,4 +29,10 @@
     z-index: 2;
   }
 
+  @include breakpoint('small') {
+    .fdz-modal__content {
+      padding: 32px;
+    }
+  }
+
 }

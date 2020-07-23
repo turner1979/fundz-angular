@@ -13,4 +13,10 @@
     @include formInput();
   }
 
+  @include breakpoint('small') {
+    .fdz-add-fund-form__row {
+      min-width: 450px;
+    }
+  }
+
 }
