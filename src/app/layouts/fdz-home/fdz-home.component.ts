@@ -8,7 +8,7 @@ import { FdzButton } from '@fdz/models';
 })
 export class FdzHomeComponent implements OnInit {
 
-  buttonOptions: FdzButton = { dark: true, text: 'View App' };
+  buttonOptions: FdzButton = { text: 'View App' };
 
   constructor() { }
 

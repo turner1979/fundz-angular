@@ -11,7 +11,7 @@ import { FdzFundService } from '@fdz/services';
 export class FdzAddFundFormComponent implements OnInit {
 
   newFundForm: FormGroup;
-  submitButtonOptions: FdzButton = { dark: true, text: 'Add', type: 'submit' };
+  submitButtonOptions: FdzButton = { text: 'Add', type: 'submit' };
 
   @Output() newFundAdd = new EventEmitter<boolean>();
 

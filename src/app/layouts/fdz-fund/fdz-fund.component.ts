@@ -18,13 +18,13 @@ export class FdzFundComponent implements OnInit {
   addContributionNameControl: FormControl;
   addContributionSuccessMessageOptions: FdzMessage = { text: ['Contribution added successfully'], type: 'success' };
   addContributionSuccessMessageVisible = false;
-  addContributionSubmitButtonOptions: FdzButton = { dark: true, text: 'ADD', type: 'submit' };
+  addContributionSubmitButtonOptions: FdzButton = { text: 'Add', type: 'submit' };
   editFundForm: FormGroup;
   editFundNameControl: FormControl;
   editFundTargetControl: FormControl;
   editFundSuccessMessageOptions: FdzMessage = { text: ['Fund details edited successfully'], type: 'success' };
   editFundSuccessMessageVisible = false;
-  editSubmitButtonOptions: FdzButton = { dark: true, text: 'EDIT', type: 'submit' };
+  editSubmitButtonOptions: FdzButton = { text: 'Edit', type: 'submit' };
   fund$: Observable<FdzFund>;
   fund: FdzFund;
   id: string;

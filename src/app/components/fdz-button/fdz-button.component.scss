@@ -8,22 +8,14 @@
     padding: 12px 16px;
     outline: none;
     border: none;
-    background: $colourWhite;
+    background: $colourMineShaft;
     border-radius: 4px;
-    border: 1px solid $colourWhite;
-    @include fdz-font(14, $colourApple);
+    @include fdz-font(14, $colourWhite);
   }
 
   &:hover {
     button {
       letter-spacing: 2px;
-    }
-  }
-
-  &.fdz-button--dark {
-    button {
-      background: $colourMineShaft;
-      @include fdz-font(14, $colourWhite);
     }
   }
 
