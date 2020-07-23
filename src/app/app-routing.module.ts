@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FdzFundsComponent, FdzFundComponent, FdzHomeComponent } from '@fdz/components';
+import { FdzFundsComponent, FdzFundComponent, FdzHomeComponent } from '@fdz/layouts';
 
 const routes: Routes = [
   { path: '', component: FdzHomeComponent },

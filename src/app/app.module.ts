@@ -16,13 +16,10 @@ import {
   FdzButtonComponent,
   FdzContentContainerComponent,
   FdzFooterComponent,
-  FdzFundComponent,
   FdzFundCardComponent,
   FdzFundPillComponent,
   FdzFundProgressComponent,
-  FdzFundsComponent,
   FdzHeaderComponent,
-  FdzHomeComponent,
   FdzIconComponent,
   FdzLoadingComponent,
   FdzLogoComponent,
@@ -30,6 +27,12 @@ import {
   FdzModalComponent,
   FdzTabsComponent
 } from '@fdz/components';
+
+import {
+  FdzFundComponent,
+  FdzFundsComponent,
+  FdzHomeComponent
+} from '@fdz/layouts';
 
 @NgModule({
   declarations: [
