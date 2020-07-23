@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { List } from 'immutable';
-import { FdzFund, FdzFundContribution } from '@fdz/models';
+import { FdzColour, FdzFund, FdzFundContribution } from '@fdz/models';
 
 enum LsKeys {
   Funds = 'fdz_funds'
@@ -44,9 +44,10 @@ export class FdzFundService {
     return of(funds.get(index));
   }
 
-  editFund(fund: FdzFund, name: string, target: number): Promise<void> {
+  editFund(fund: FdzFund, colour: FdzColour, name: string, target: number): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       setTimeout(() => {
+        fund.colour = colour;
         fund.name = name;
         fund.target = target;
         this.funds.subscribe((funds) => {

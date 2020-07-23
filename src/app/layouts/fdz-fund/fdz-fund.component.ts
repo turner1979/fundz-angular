@@ -3,6 +3,7 @@ import { FdzFundService } from '@fdz/services';
 import { FormGroup, FormControl , Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { FDZ_COLOURS } from '@fdz/config';
 import { FdzFund, FzdTabs, FdzMessage, FdzButton } from '@fdz/models';
 
 @Component({
@@ -19,6 +20,7 @@ export class FdzFundComponent implements OnInit {
   addContributionSuccessMessageOptions: FdzMessage = { text: ['Contribution added successfully'], type: 'success' };
   addContributionSuccessMessageVisible = false;
   addContributionSubmitButtonOptions: FdzButton = { text: 'Add', type: 'submit' };
+  colours = FDZ_COLOURS;
   editFundForm: FormGroup;
   editFundNameControl: FormControl;
   editFundTargetControl: FormControl;
@@ -64,6 +66,7 @@ export class FdzFundComponent implements OnInit {
       amount: new FormControl('')
     });
     this.editFundForm = new FormGroup({
+      colour: new FormControl(this.fund.colour),
       name: new FormControl(this.fund.name),
       target: new FormControl(this.fund.target)
     });
@@ -132,6 +135,7 @@ export class FdzFundComponent implements OnInit {
       this.setLoadingState(true);
       this.fundService.editFund(
         this.fund,
+        this.editFundForm.value.colour,
         this.editFundForm.value.name,
         this.editFundForm.value.target
       ).then(() => {
