@@ -40,6 +40,7 @@ export class FdzAddFundFormComponent implements OnInit {
     if (this.newFundForm.valid) {
       this.fundService.addFund({
         id: Math.random().toString(36).substr(2),
+        colour: '#64b83d',
         current: 0,
         name: this.newFundForm.value.fundName,
         target: this.newFundForm.value.fundTarget

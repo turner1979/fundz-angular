@@ -1,6 +1,6 @@
 <div class="fdz-fund-card">
 
-  <div class="fdz-fund-card__top">
+  <div class="fdz-fund-card__top" [ngStyle]="cardColour">
     <div>
       <p *ngIf="fund?.name">
         <strong>{{ fund.name }}</strong>
@@ -22,5 +22,5 @@
 
   <div class="fdz-fund-card__bottom">
     <ng-content></ng-content>
-  </div>  
+  </div>
 </div>

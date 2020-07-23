@@ -27,4 +27,10 @@ export class FdzFundCardComponent implements OnInit {
     this.deleteFund.emit(this.fund);
   }
 
+  get cardColour(): any {
+    return {
+      background: this.fund.colour
+    };
+  }
+
 }
