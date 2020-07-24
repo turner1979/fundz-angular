@@ -5,7 +5,7 @@
     <div
       class="fdz-add-fund-form__row"
       [ngClass]="{'valid' : newFundForm.controls['fundName'].valid }">
-        <input type="text" name="fundName" formControlName="fundName" placeholder="Name" maxlength="20" />
+        <input type="text" name="fundName" formControlName="fundName" placeholder="Name" maxlength="20" #addFundNameInputElem />
         <fdz-message
           *ngIf="newFundForm.controls['fundName'].invalid && newFundForm.controls['fundName'].dirty"
           [options]="fundNameErrorMessageOptions"></fdz-message>

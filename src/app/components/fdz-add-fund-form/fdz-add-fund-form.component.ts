@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FdzButton, FdzMessage } from '@fdz/models';
 import { FdzFundService } from '@fdz/services';
@@ -24,6 +24,10 @@ export class FdzAddFundFormComponent implements OnInit {
   submitButtonOptions: FdzButton = { text: 'Add', type: 'submit' };
 
   @Output() newFundAdd = new EventEmitter<boolean>();
+  @ViewChild('addFundNameInputElem') set addFundNameInputElem(input: ElementRef | null) {
+    if (!input) return;
+    setTimeout(() => { input.nativeElement.focus(); });
+  }
 
   constructor(private fundService: FdzFundService) { }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FdzFundService } from '@fdz/services';
 import { FormGroup, FormControl , Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -56,6 +56,16 @@ export class FdzFundComponent implements OnInit {
       { iconClass: 'fas fa-coins', name: 'Add Contribution' }
     ]
   };
+
+  @ViewChild('addContributionDateInputElem') set addContributionDateInputElem(input: ElementRef | null) {
+    if (!input) return;
+    setTimeout(() => { input.nativeElement.focus(); });
+  }
+
+  @ViewChild('editFundNameInputElem') set editFundNameInputElem(input: ElementRef | null) {
+    if (!input) return;
+    setTimeout(() => { input.nativeElement.focus(); });
+  }
 
   constructor(
     private fundService: FdzFundService,

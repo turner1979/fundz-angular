@@ -54,7 +54,7 @@
               <form class="fdz-fund__form" [formGroup]="editFundForm" (ngSubmit)="onEditFundSubmit()" autocomplete="off">
                 <p><strong>Edit Fund</strong></p>
                 <div class="fdz-fund__form-row" [ngClass]="{ 'valid' : editFundForm.controls['name'].valid && editFundForm.controls['name'].dirty }">
-                  <input type="text" formControlName="name" [placeholder]="fund?.name" />
+                  <input type="text" formControlName="name" [placeholder]="fund?.name" #editFundNameInputElem />
                   <fdz-message
                     *ngIf="editFundForm.controls['name'].invalid && editFundForm.controls['name'].dirty"
                     [options]="fundNameErrorMessageOptions"></fdz-message>
@@ -89,7 +89,7 @@
                 <form class="fdz-fund__form" [formGroup]="addContributionForm" (ngSubmit)="onAddContributionSubmit()" autocomplete="off">
                   <p><strong>Add Contribution</strong></p>
                   <div class="fdz-fund__form-row" [ngClass]="{ 'valid' : addContributionForm.controls['date'].valid && addContributionForm.controls['date'].dirty }">
-                    <input type="text" formControlName="date" placeholder="Date DD/MM/YYYY" mask="00/00/0000" maxlength="10" />
+                    <input type="text" formControlName="date" placeholder="Date DD/MM/YYYY" mask="00/00/0000" maxlength="10" #addContributionDateInputElem />
                     <fdz-message
                       *ngIf="addContributionForm.controls['date'].invalid && addContributionForm.controls['date'].dirty"
                       [options]="addContributionDateErrorMessageOptions"></fdz-message>
