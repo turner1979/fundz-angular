@@ -15,8 +15,17 @@ export class FdzFundComponent implements OnInit {
 
   addContributionForm: FormGroup;
   addContributionAmountControl: FormControl;
+  addContributionAmountErrorMessageOptions: FdzMessage = {
+    text: [
+      'Must be at least 1 characters long.',
+      'Must be number (whole numbers only)'
+    ],
+    type: 'error'
+  };
   addContributionDateControl: FormControl;
+  addContributionDateErrorMessageOptions: FdzMessage = { text: ['Date format must be DD/MM/YYYY'], type: 'error' };
   addContributionNameControl: FormControl;
+  addContributionNameErrorMessageOptions: FdzMessage = { text: ['Must be at least 2 characters long.'], type: 'error' };
   addContributionSuccessMessageOptions: FdzMessage = { text: ['Contribution added successfully'], type: 'success' };
   addContributionSuccessMessageVisible = false;
   addContributionSubmitButtonOptions: FdzButton = { text: 'Add', type: 'submit' };
@@ -29,6 +38,14 @@ export class FdzFundComponent implements OnInit {
   editSubmitButtonOptions: FdzButton = { text: 'Edit', type: 'submit' };
   fund$: Observable<FdzFund>;
   fund: FdzFund;
+  fundNameErrorMessageOptions: FdzMessage = { text: ['Must be at least 1 characters long.'], type: 'error' };
+  fundTargetErrorMessageOptions: FdzMessage = {
+    text: [
+      'Must be at least 1 characters long.',
+      'Must be number (whole numbers only)'
+    ],
+    type: 'error'
+  };
   id: string;
   loading = false;
   tabOptions: FzdTabs = {

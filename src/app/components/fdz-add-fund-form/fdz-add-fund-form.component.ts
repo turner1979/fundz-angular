@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FdzButton } from '@fdz/models';
+import { FdzButton, FdzMessage } from '@fdz/models';
 import { FdzFundService } from '@fdz/services';
 import { FDZ_COLOURS } from '@fdz/config';
 
@@ -12,6 +12,14 @@ import { FDZ_COLOURS } from '@fdz/config';
 export class FdzAddFundFormComponent implements OnInit {
 
   colours = FDZ_COLOURS;
+  fundNameErrorMessageOptions: FdzMessage = { text: ['Must be at least 2 characters long.'], type: 'error' };
+  fundTargetErrorMessageOptions: FdzMessage = {
+    text: [
+      'Must be at least 1 character long.',
+      'Must be number (whole numbers only)'
+    ],
+    type: 'error'
+  };
   newFundForm: FormGroup;
   submitButtonOptions: FdzButton = { text: 'Add', type: 'submit' };
 

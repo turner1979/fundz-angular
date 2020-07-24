@@ -51,23 +51,23 @@
               <a (click)="onEditFundSuccessButton()">Back To Form</a>
             </ng-container>
             <ng-template #showEditForm>
-              <form class="fdz-fund__form" [formGroup]="editFundForm" (ngSubmit)="onEditFundSubmit()">
+              <form class="fdz-fund__form" [formGroup]="editFundForm" (ngSubmit)="onEditFundSubmit()" autocomplete="off">
                 <p><strong>Edit Fund</strong></p>
-                <div class="fdz-fund__form-row" [ngClass]="{
-                  'invalid' : editFundForm.controls['name'].invalid && editFundForm.controls['name'].dirty,
-                  'valid' : editFundForm.controls['name'].valid && editFundForm.controls['name'].dirty }">
+                <div class="fdz-fund__form-row" [ngClass]="{ 'valid' : editFundForm.controls['name'].valid && editFundForm.controls['name'].dirty }">
                   <input type="text" formControlName="name" [placeholder]="fund?.name" />
+                  <fdz-message
+                    *ngIf="editFundForm.controls['name'].invalid && editFundForm.controls['name'].dirty"
+                    [options]="fundNameErrorMessageOptions"></fdz-message>
                 </div>
-                <div class="fdz-fund__form-row" [ngClass]="{
-                  'invalid' : editFundForm.controls['target'].invalid && editFundForm.controls['target'].dirty,
-                  'valid' : editFundForm.controls['target'].valid && editFundForm.controls['target'].dirty }">
+                <div class="fdz-fund__form-row" [ngClass]="{ 'valid' : editFundForm.controls['target'].valid && editFundForm.controls['target'].dirty }">
                   <input type="text" formControlName="target" [placeholder]="fund?.target" maxlength="12" mask="separator.0" thousandSeparator="," />
-                </div>
-                <div class="fdz-fund__form-row" *ngIf="editFundForm.controls['target'].errors?.min">
-                  <fdz-message [options]="{
-                    text: ['Target must be greater or equal to fund contributions of £' + editFundForm.controls['target'].errors?.min?.min],
-                    type: 'error'
-                  }"></fdz-message>
+                  <fdz-message
+                    *ngIf="editFundForm.controls['target'].invalid && editFundForm.controls['target'].dirty && !editFundForm.controls['target'].errors?.min"
+                    [options]="fundTargetErrorMessageOptions"></fdz-message>
+                  <fdz-message *ngIf="editFundForm.controls['target'].errors?.min" [options]="{
+                      text: ['Target must be greater or equal to fund contributions of £' + editFundForm.controls['target'].errors?.min?.min],
+                      type: 'error'
+                    }"></fdz-message>
                 </div>
                 <div class="fdz-fund__form-row">
                   <fdz-input-colour formControlName="colour" [name]="'colour'" [options]="colours"></fdz-input-colour>
@@ -86,25 +86,28 @@
                 <fdz-message [options]="{ text: ['Fund target of £' + fund.target +' has been reached'], type: 'success' }"></fdz-message>
               </ng-container>
               <ng-template #showAddContributionForm>
-                <form class="fdz-fund__form" [formGroup]="addContributionForm" (ngSubmit)="onAddContributionSubmit()">
+                <form class="fdz-fund__form" [formGroup]="addContributionForm" (ngSubmit)="onAddContributionSubmit()" autocomplete="off">
                   <p><strong>Add Contribution</strong></p>
-                  <div class="fdz-fund__form-row" [ngClass]="{
-                    'invalid' : addContributionForm.controls['date'].invalid && addContributionForm.controls['date'].dirty,
-                    'valid' : addContributionForm.controls['date'].valid && addContributionForm.controls['date'].dirty }">
+                  <div class="fdz-fund__form-row" [ngClass]="{ 'valid' : addContributionForm.controls['date'].valid && addContributionForm.controls['date'].dirty }">
                     <input type="text" formControlName="date" placeholder="Date DD/MM/YYYY" mask="00/00/0000" maxlength="10" />
+                    <fdz-message
+                      *ngIf="addContributionForm.controls['date'].invalid && addContributionForm.controls['date'].dirty"
+                      [options]="addContributionDateErrorMessageOptions"></fdz-message>
                   </div>
-                  <div class="fdz-fund__form-row" [ngClass]="{
-                    'invalid' : addContributionForm.controls['name'].invalid && addContributionForm.controls['name'].dirty,
-                    'valid' : addContributionForm.controls['name'].valid && addContributionForm.controls['name'].dirty }">
+                  <div class="fdz-fund__form-row" [ngClass]="{ 'valid' : addContributionForm.controls['name'].valid && addContributionForm.controls['name'].dirty }">
                     <input type="text" formControlName="name" placeholder="Name" maxlength="20" />
+                    <fdz-message
+                      *ngIf="addContributionForm.controls['name'].invalid && addContributionForm.controls['name'].dirty"
+                      [options]="addContributionNameErrorMessageOptions"></fdz-message>
                   </div>
-                  <div class="fdz-fund__form-row" [ngClass]="{
-                    'invalid' : addContributionForm.controls['amount'].invalid && addContributionForm.controls['amount'].dirty,
-                    'valid' : addContributionForm.controls['amount'].valid && addContributionForm.controls['amount'].dirty }">
+                  <div class="fdz-fund__form-row" [ngClass]="{ 'valid' : addContributionForm.controls['amount'].valid && addContributionForm.controls['amount'].dirty }">
                     <input type="text" formControlName="amount" placeholder="Amount" maxlength="12" mask="separator.0" thousandSeparator="," />
-                  </div>
-                  <div class="fdz-fund__form-row" *ngIf="addContributionForm.controls['amount'].errors?.max">
-                    <fdz-message [options]="{ text: ['Max contribution amount must be £' + addContributionForm.controls['amount'].errors?.max?.max + ' or less'], type: 'error' }"></fdz-message>
+                    <fdz-message
+                      *ngIf="addContributionForm.controls['amount'].invalid && addContributionForm.controls['amount'].dirty && !addContributionForm.controls['amount'].errors?.max"
+                      [options]="addContributionAmountErrorMessageOptions"></fdz-message>
+                    <fdz-message
+                      *ngIf="addContributionForm.controls['amount'].errors?.max"
+                      [options]="{ text: ['Max contribution amount must be £' + addContributionForm.controls['amount'].errors?.max?.max + ' or less'], type: 'error' }"></fdz-message>
                   </div>
                   <fdz-button [options]="addContributionSubmitButtonOptions"></fdz-button>
                 </form>
