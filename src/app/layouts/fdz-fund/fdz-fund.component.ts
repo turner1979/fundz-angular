@@ -58,12 +58,16 @@ export class FdzFundComponent implements OnInit {
   };
 
   @ViewChild('addContributionDateInputElem') set addContributionDateInputElem(input: ElementRef | null) {
-    if (!input) return;
+    if (!input) {
+      return;
+    }
     setTimeout(() => { input.nativeElement.focus(); });
   }
 
   @ViewChild('editFundNameInputElem') set editFundNameInputElem(input: ElementRef | null) {
-    if (!input) return;
+    if (!input) {
+      return;
+    }
     setTimeout(() => { input.nativeElement.focus(); });
   }
 

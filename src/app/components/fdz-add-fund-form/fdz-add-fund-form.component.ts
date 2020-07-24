@@ -25,7 +25,9 @@ export class FdzAddFundFormComponent implements OnInit {
 
   @Output() newFundAdd = new EventEmitter<boolean>();
   @ViewChild('addFundNameInputElem') set addFundNameInputElem(input: ElementRef | null) {
-    if (!input) return;
+    if (!input) {
+      return;
+    }
     setTimeout(() => { input.nativeElement.focus(); });
   }
 

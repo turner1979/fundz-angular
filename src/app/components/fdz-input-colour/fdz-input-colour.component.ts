@@ -17,8 +17,8 @@ const TYPE_CONTROL_ACCESSOR = {
 export class FdzInputColourComponent implements OnInit {
 
   public value: FdzColour;
-  private onTouch: Function;
-  private onModelChange: Function;
+  private onTouch: any;
+  private onModelChange: any;
 
   @Input() name = '';
   @Input() options: FdzColour[] = [];
@@ -41,7 +41,7 @@ export class FdzInputColourComponent implements OnInit {
     this.onTouch = fn;
   }
 
-  onSelectOption(value: FdzColour) {
+  onSelectOption(value: FdzColour): void {
     this.value = value;
     this.onModelChange(value);
     this.onTouch();
