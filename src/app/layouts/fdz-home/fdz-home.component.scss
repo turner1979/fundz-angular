@@ -6,13 +6,10 @@
   justify-content: center;
   align-items: center;
 
-  .fdz-home__logo {
-    background: url(~src/assets/images/angular-logo.svg);
-    width: 64px;
-    height: 64px;
-    margin-bottom: 16px;
+  fdz-version {
+    margin: 0 16px 16px;
   }
-  
+
   .fdz-home__content {
     display: flex;
     justify-content: center;
@@ -30,5 +27,5 @@
     }
 
   }
-  
+
 }

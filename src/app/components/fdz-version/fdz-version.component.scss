@@ -1,0 +1,22 @@
+@import "fdz-styles";
+
+.fdz-version {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 8px;
+  background: $colourWhite;
+
+  .fdz-version__logo {
+    background: url(~src/assets/images/angular-logo.svg);
+    width: 64px;
+    height: 64px;
+  }
+
+  p {
+    @include fdz-font(14);
+  }
+
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FDZ_COLOURS } from '@fdz/config';
 
 @Component({
   selector: 'fdz-logo',
@@ -7,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FdzLogoComponent implements OnInit {
 
+  colours = FDZ_COLOURS;
   @Input() alt = false;
 
   constructor() { }

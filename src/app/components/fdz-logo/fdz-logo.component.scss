@@ -1,24 +1,33 @@
 @import "fdz-styles";
 
 .fdz-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  h1 {
-    @include fdz-font(16, $colourMineShaft, 600);
-    margin: 0;
+  .fdz-logo__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    span {
-      border-bottom: 2px solid $colourMineShaft;
+    h1 {
+      @include fdz-font(16, $colourMineShaft, 600);
+      margin: 0;
+    }
+  }
+
+  .fdz-logo__colours {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .fdz-logo__colour {
+      width: 20px;
+      height: 4px;
     }
   }
 
   &.fdz-logo--alt {
-    h1 {
-      @include fdz-font(32, $colourMineShaft, 600);
-      span {
-        border-bottom: 2px solid $colourMineShaft;
+    .fdz-logo__text {
+      h1 {
+        @include fdz-font(32, $colourMineShaft, 600);
       }
     }
   }

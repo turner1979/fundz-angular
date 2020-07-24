@@ -1,5 +1,11 @@
 <div class="fdz-logo" [ngClass]="{ 'fdz-logo--alt' : alt }">
 
-  <h1>fund<span>z</span></h1>
+  <div class="fdz-logo__text">
+    <h1>fundz</h1>
+  </div>
+
+  <div class="fdz-logo__colours">
+    <div class="fdz-logo__colour" *ngFor="let colour of colours" [ngStyle]="{ 'background' : colour.colour }"></div>
+  </div>
 
 </div>
