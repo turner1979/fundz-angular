@@ -29,16 +29,16 @@ The app demonstrates the use of the following:
 
 - Angular ( v10 )
 - SCSS
+- TypeScript
+- HTML
 
 ## Other Versions
 
-- AngularJS - (coming soon)
-- Angular + NgRx - (coming soon)
-- Bit - (coming soon)
-- React - (coming soon)
-- React + Redux - (coming soon)
-- Svelte - (coming soon)
-- Vue (coming soon)
+- AngularJS - (TODO)
+- Bit - (TODO)
+- React - (TODO)
+- Svelte - (TODO)
+- Vue - [ [App](http://www.scottturner.co.uk/examples/fundz/fundz-vue) | [Code](https://github.com/turner1979/fundz-vue) ]
 
 ## Running the App Locally
 
