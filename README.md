@@ -34,6 +34,7 @@ The app demonstrates the use of the following:
 
 ## Other Versions
 
+- Angular - [ [App](http://www.scottturner.co.uk/examples/fundz/fundz-angular) ]
 - AngularJS - (TODO)
 - Bit - (TODO)
 - React - (TODO)
